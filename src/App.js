@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import './App.css';
+
 //components
 import DataTest from './components/FetchTest';
 import Display from './components/Display';
+import Map from './components/Map';
+
 
 function App() {
 
@@ -15,6 +18,7 @@ function App() {
       </header>
       <DataTest setDisplay={setDisplay}/>
       <Display display={display}/>
+      <Map />
     </div>
   );
 }
