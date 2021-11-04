@@ -1,5 +1,7 @@
 
 import './App.css';
+//components
+import DataTest from './components/fetchTest';
 
 function App() {
   return (
@@ -7,6 +9,7 @@ function App() {
       <header className="App-header">
        <h1>Covid Statistics Dashboard</h1>
       </header>
+      <DataTest />
     </div>
   );
 }
