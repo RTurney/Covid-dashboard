@@ -1,3 +1,37 @@
+# Covid dashboard app
+
+This is a Covid dashboard project to upskill in react as suggested by this website: 
+https://www.freecodecamp.org/news/8-reactjs-project-ideas-to-start-learning-by-doing/
+
+This project will use the [Open disease data api](https://disease.sh/) to fetch and display global covid data. 
+
+--------------------------------
+## Contents
+
+1. Current state of app 
+2. Project plan 
+3. Getting started 
+4. Repo structure 
+5. Running the application 
+6. Deploying the application 
+7. Notes 
+8. Contributors
+
+--------------------------------
+## Current state on main 
+
+Currently this application is not usable and does not fetch and data. 
+
+--------------------------------
+## Project plan 
+
+Here is the figma design of the application in it's end-state: 
+
+<img src='public/Covid-dashboard.png'>
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
