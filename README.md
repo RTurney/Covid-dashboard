@@ -25,10 +25,23 @@ Currently this application is not usable and does not fetch and data.
 --------------------------------
 ## Project plan 
 
-Here is the figma design of the application in it's end-state: 
+Here is the basic figma design of the application in it's end-state: 
 
-<img src='public/Covid-dashboard.png'>
+<img src='public/Covid-dashboard.png'> 
 
+The basic layout will be:
+* A map with markers for each country 
+* A statistics board detailing the key statistics for each country 
+* A header/navbar for the Covid dashboard 
+* Graphs of global data for cases/deaths/vaccinations
+* A modal detailing key statistics for a country when clicked on
+
+Key steps: 
+1. Create react app 
+2. Fetch statistics from api
+3. Display statistics to app 
+4. Display map to app 
+5. Link map to statistics so users can click map for stats 
 
 
 
