@@ -1,6 +1,6 @@
 import React from "react";
 
-const DataTest = ({ setDisplay, setContinentData, setCountryData }) => {
+const CovidData = ({ setDisplay, setContinentData, setCountryData }) => {
     
 
     const fetchTotalCases = () => {
@@ -61,4 +61,4 @@ const DataTest = ({ setDisplay, setContinentData, setCountryData }) => {
     );
 };
 
-export default DataTest;
+export default CovidData;

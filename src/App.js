@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './App.css';
 
 //components
-import DataTest from './components/FetchTest';
+import DataTest from './components/FetchCovidData';
 import Display from './components/Display';
 import Map from './components/Map';
 
