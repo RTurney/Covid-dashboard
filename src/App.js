@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './App.css';
 
 //components
-import DataTest from './components/FetchCovidData';
+import Navbar from './components/Navbar';
 import Display from './components/Display';
 import Map from './components/Map';
 
@@ -10,7 +10,7 @@ import Map from './components/Map';
 function App() {
 
   //state constants 
-  const [display, setDisplay] = useState('');
+  const [display, setDisplay] = useState('Covid is still a global issue. Please be considerate of others');
   const [continentData, setContinentData] = useState([]);
   const [countryData, setCountryData] = useState([]);
 
@@ -18,11 +18,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <h1>Covid Statistics Dashboard</h1>
+             <Navbar 
+             setDisplay={setDisplay} 
+             setContinentData={setContinentData} 
+             setCountryData={setCountryData} 
+             />
       </header>
-      <DataTest setDisplay={setDisplay} setContinentData={setContinentData} setCountryData={setCountryData} />
       <Display display={display}/>
-      <Map continentData={continentData} countryData={countryData}/>
+      <Map 
+      continentData={continentData} 
+      countryData={countryData}
+      />
     </div>
   );
 }

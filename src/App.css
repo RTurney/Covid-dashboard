@@ -1,4 +1,10 @@
 .leaflet-container {
-    width: 90%;
-    height: 80vh;
+    width: 70%;
+    height: 70vh;
+    margin-left: 15%;
   }
+
+.App {
+  background-color: darkred;
+  height: 100vh;
+}
