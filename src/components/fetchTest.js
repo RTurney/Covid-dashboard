@@ -1,6 +1,6 @@
 import React from "react";
 
-const DataTest = ({ setDisplay }) => {
+const DataTest = ({ setDisplay, setContinentData }) => {
     
 
     const fetchTotalCases = () => {
@@ -27,11 +27,17 @@ const DataTest = ({ setDisplay }) => {
             .then((data) => setDisplay("The total number of deaths today is: " + data.todayDeaths));      
     }
 
+    const checkContinents = () => {
+        return fetch("https://disease.sh/v3/covid-19/continents")
+            .then((response) => response.json())
+            .then((data) => setContinentData(data))
+    };
+
     const checkCountries = () => {
         return fetch("https://disease.sh/v3/covid-19/countries")
             .then((response) => response.json())
             .then((data) => console.log(data))
-    };
+    }
 
     return (
         <div>
@@ -39,7 +45,9 @@ const DataTest = ({ setDisplay }) => {
             <button onClick={fetchTotalCasesToday} >Total cases today</button>
             <button onClick={fetchTotalDeaths} >Total deaths</button>
             <button onClick={fetchTotalDeathsToday} >Total deaths today</button>
-            <button onClick={checkCountries}>Generate console log</button>
+            <br />
+            <button onClick={checkContinents}>Continents data</button>
+            <button onClick={checkCountries}>Countries data</button>
         </div>
     );
 };

@@ -9,16 +9,19 @@ import Map from './components/Map';
 
 function App() {
 
+  //state constants 
   const [display, setDisplay] = useState('');
+  const [continentData, setContinentData] = useState([]);
+
 
   return (
     <div className="App">
       <header className="App-header">
        <h1>Covid Statistics Dashboard</h1>
       </header>
-      <DataTest setDisplay={setDisplay}/>
+      <DataTest setDisplay={setDisplay} setContinentData={setContinentData}/>
       <Display display={display}/>
-      <Map />
+      <Map continentData={continentData}/>
     </div>
   );
 }
