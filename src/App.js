@@ -10,7 +10,7 @@ import Map from './components/Map';
 function App() {
 
   //state constants 
-  const [display, setDisplay] = useState('Covid is still a global issue. Please be considerate of others');
+  const [display, setDisplay] = useState('');
   const [continentData, setContinentData] = useState([]);
   const [countryData, setCountryData] = useState([]);
 
