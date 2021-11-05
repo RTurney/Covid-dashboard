@@ -1,6 +1,6 @@
 import React from "react";
 
-const DataTest = ({ setDisplay, setContinentData }) => {
+const DataTest = ({ setDisplay, setContinentData, setCountryData }) => {
     
 
     const fetchTotalCases = () => {
@@ -28,16 +28,25 @@ const DataTest = ({ setDisplay, setContinentData }) => {
     }
 
     const checkContinents = () => {
-        return fetch("https://disease.sh/v3/covid-19/continents")
+        setCountryData([]);
+        return (
+            fetch("https://disease.sh/v3/covid-19/continents")
             .then((response) => response.json())
             .then((data) => setContinentData(data))
+
+        )
     };
 
     const checkCountries = () => {
-        return fetch("https://disease.sh/v3/covid-19/countries")
+        setContinentData([]);
+        return (
+            fetch("https://disease.sh/v3/covid-19/countries")
             .then((response) => response.json())
-            .then((data) => console.log(data))
+            .then((data) => setCountryData(data))
+        )
     }
+
+
 
     return (
         <div>

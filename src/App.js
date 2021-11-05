@@ -12,6 +12,7 @@ function App() {
   //state constants 
   const [display, setDisplay] = useState('');
   const [continentData, setContinentData] = useState([]);
+  const [countryData, setCountryData] = useState([]);
 
 
   return (
@@ -19,9 +20,9 @@ function App() {
       <header className="App-header">
        <h1>Covid Statistics Dashboard</h1>
       </header>
-      <DataTest setDisplay={setDisplay} setContinentData={setContinentData}/>
+      <DataTest setDisplay={setDisplay} setContinentData={setContinentData} setCountryData={setCountryData} />
       <Display display={display}/>
-      <Map continentData={continentData}/>
+      <Map continentData={continentData} countryData={countryData}/>
     </div>
   );
 }
