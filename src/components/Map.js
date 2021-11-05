@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapContainer, TileLayer } from "react-leaflet";
-import Circles from './Circles';
+import ContinentCircles from './ContinentCircles';
 import CountryCircles from './CountryCircles';
 
 const Map = ({ continentData, countryData }) => {
@@ -11,7 +11,7 @@ const Map = ({ continentData, countryData }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-       { continentData && <Circles continentData={continentData} /> }
+       { continentData && <ContinentCircles continentData={continentData} /> }
        { countryData && <CountryCircles countryData={countryData} /> }
     </MapContainer>
     )
