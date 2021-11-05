@@ -11,13 +11,13 @@ This project uses the [Open disease data api](https://disease.sh/) to fetch and 
 
 ## Contents
 
-1. [Current state of app](##Current-state-on-main)
-2. [Project plan](##Project-plan)
-3. [Getting started](##Getting-started)
-4. [Repo structure](##Repo-structure)
-5. [Running the application](##Running-the-application)
-6. [Deploying the application](##Deploying-the-application)
-7. [Notes](###Notes)
+1. [Current state of app](#Current-state-on-main)
+2. [Project plan](#Project-plan)
+3. [Getting started](#Getting-started)
+4. [Repo structure](#Repo-structure)
+5. [Running the application](#Running-the-application)
+6. [Deploying the application](#Deploying-the-application)
+7. [Notes](#Notes)
 8. [Contributors](#Contributors)
 
 ---
