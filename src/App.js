@@ -24,7 +24,10 @@ function App() {
       </header>
       <Display />
       <div className='dashboard'>
-        <StatisticsBoard countryData={countryData}/>
+        <StatisticsBoard 
+          countryData={countryData} 
+          continentData={continentData}
+        />
         <Map 
           continentData={continentData} 
           countryData={countryData}

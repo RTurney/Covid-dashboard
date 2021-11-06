@@ -4,8 +4,9 @@ import './StatisticsBoard.css'
 //components
 import StatsTotals from './StatsTotals';
 import CountryStats from './CountryStats';
+import ContinentStats from './ContinentStats';
 
-const StatisticsBoard = ({ countryData }) => {
+const StatisticsBoard = ({ countryData, continentData }) => {
 
     //set states on load 
     useEffect(() => {
@@ -54,7 +55,10 @@ const StatisticsBoard = ({ countryData }) => {
                 deaths={deaths}
                 deathsToday={deathsToday}
             />
-            <CountryStats countryData={countryData} />
+            <div className='stats-breakdown-container'>
+                { countryData && <CountryStats countryData={countryData} /> }
+                { continentData && <ContinentStats continentData={continentData} /> }
+            </div>
         </div>
     )
 };

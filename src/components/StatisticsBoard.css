@@ -5,3 +5,7 @@
     width: 20%;
     height: 50vh;
 }
+.stats-breakdown-container {
+    height: 35vh;
+    overflow-y: scroll;
+}

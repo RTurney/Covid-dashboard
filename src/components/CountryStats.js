@@ -1,14 +1,12 @@
 import React from 'react';
-//css
-import './CountryStats.css'
 
 const CountryStats = ({ countryData }) => {
     return (
-        <div className='another-div'>
+        <div className='stats-breakdown-container'>
             <div className='stats-breakdown'>
-                {countryData.map(country => {
+                {countryData.map((country, i) => {
                     return (
-                        <div className='country'>
+                        <div className='country' key={i}>
                             <p>{country.country}</p>
                             <li>Total cases: {country.cases}</li>
                             <li>Total deaths: {country.deaths}</li>
