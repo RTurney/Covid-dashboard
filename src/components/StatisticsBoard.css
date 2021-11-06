@@ -1,0 +1,7 @@
+.stats-board {
+    border-color: black;
+    border-width: 1px;
+    background-color: gray;
+    width: 20%;
+    height: 50vh;
+}

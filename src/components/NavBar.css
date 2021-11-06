@@ -1,10 +1,12 @@
 .nav-Bar {
     text-align: center;
-    background-color: darkred;
 }
 .title {
     text-align: center;
     color: gold;
     margin-top: 0%;
     padding-top: 2%;
+}
+.navbar-display {
+   display: inline-flex;
 }

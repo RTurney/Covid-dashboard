@@ -1,10 +1,14 @@
 .leaflet-container {
-    width: 70%;
-    height: 70vh;
-    margin-left: 15%;
+    width: 50%;
+    height: 50vh;
+    margin-left: 2%;
   }
 
 .App {
-  background-color: darkred;
+  background-color: #b82b2b;
   height: 100vh;
+}
+.dashboard {
+  display: flex;
+  margin-top: 5vh;
 }
