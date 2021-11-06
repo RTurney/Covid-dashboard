@@ -1,0 +1,14 @@
+.display-container {
+    width: 50%;
+    padding-left: 25%;
+}
+.display-words {
+    text-align: center;
+    color: white;
+}
+.ticker{
+    background-color:rgba(27, 26, 26, 0.918);
+}
+.ticker-words {
+    color: yellow;
+}
