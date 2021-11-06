@@ -4,11 +4,12 @@ import './NavBar.css'
 
 const Navbar = ({ setDisplay, setContinentData, setCountryData }) => {
 
-    // effects
+    // effects 
     useEffect(() => {
         checkCountries();
         fetchTotalCasesToday();
-    }, [])
+        // eslint-disable-next-line
+    }, []);
 
     // functions 
     const fetchTotalCases = () => {
