@@ -3,7 +3,7 @@ import Ticker from 'react-ticker';
 //css
 import './Display.css'
 
-const Display = ({ display }) => {
+const Display = () => {
     return (
         <div className='display-container'>
             <Ticker className='ticker-display' mode='smooth'>
@@ -13,9 +13,6 @@ const Display = ({ display }) => {
                     </div>
                 )}
             </Ticker>
-            <div>
-                <h3 className='display-words'>{display}</h3>
-            </div>
         </div>
     )
 };

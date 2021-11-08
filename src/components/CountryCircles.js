@@ -9,7 +9,7 @@ const CountryCircles = ({ countryData }) => {
                     <Circle 
                     key={i}
                     center={[country.countryInfo.lat, country.countryInfo.long]}
-                    radius={500 * Math.sqrt(country.casesPerOneMillion)}
+                    radius={200 * Math.sqrt(country.cases)}
                     onMouseOver={(e) => { e.target.openPopup()}}
                     onMouseOut={(e) => { e.target.closePopup()}}
                     >

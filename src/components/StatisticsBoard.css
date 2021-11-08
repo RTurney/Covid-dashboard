@@ -1,0 +1,11 @@
+.stats-board {
+    border-color: black;
+    border-width: 1px;
+    background-color: gray;
+    width: 20%;
+    height: 50vh;
+}
+.stats-breakdown-container {
+    height: 35vh;
+    overflow-y: scroll;
+}
