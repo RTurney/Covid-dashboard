@@ -7,6 +7,8 @@ This project uses the [Open disease data api](https://disease.sh/) to fetch and 
 
 [Leaflet](https://leafletjs.com/index.html) is used to display the map data.
 
+This application is also deployed †o https://covid-datatracker-dashboard.herokuapp.com/ and can be run there.
+
 ---
 
 ## Contents
@@ -113,18 +115,25 @@ This should start the application server and this app will load within your defa
 
 You should now be able to access this application. The server automatically refreshes when any changes are saved to file.
 
+This application can also be run from the online server at:
+https://covid-datatracker-dashboard.herokuapp.com/
+
 ---
 
 ## Deploying the application
 
-This application is currently not deployed upon any service
+This application is currently deployed to Heroku at:
+https://covid-datatracker-dashboard.herokuapp.com/
+
+Deployment will only be made from the main branch.
+No pipeline or has testing has been set up yet.
 
 ---
 
 ### Notes
 
 This project is currently still in development
-This project is not yet deployed to any service
+This project is now deployed to Heroku, but does not have a pipeline set up yet.
 
 ---
 
