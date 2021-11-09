@@ -1,6 +1,6 @@
 .leaflet-container {
     width: 50%;
-    height: 50vh;
+    height: 60vh;
     margin-left: 2%;
   }
 
@@ -12,6 +12,14 @@
   display: flex;
   margin-top: 5vh;
 }
+.graph-board {
+  height: 60vh
+}
 .graph {
   background-color: white;
+}
+.case-graph {
+  margin-bottom: 2%;
+  height: 300;
+  width: 300;
 }

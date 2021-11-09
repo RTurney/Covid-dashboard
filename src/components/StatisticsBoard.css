@@ -3,9 +3,9 @@
     border-width: 1px;
     background-color: gray;
     width: 20%;
-    height: 50vh;
+    height: 60vh;
 }
 .stats-breakdown-container {
-    height: 35vh;
+    height: 45vh;
     overflow-y: scroll;
 }

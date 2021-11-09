@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Display from './components/Display';
 import Map from './components/Map';
 import StatisticsBoard from './components/StatisticsBoard';
-import CaseGraph from './components/CaseGraph';
+import GraphBoard from './components/GraphBoard';
 
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
           continentData={continentData} 
           countryData={countryData}
         />
-        <CaseGraph />
+        <GraphBoard />
       </div>
     </div>
   );
