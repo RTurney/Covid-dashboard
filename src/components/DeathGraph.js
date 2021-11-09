@@ -13,8 +13,12 @@ const DeathGraph = ( { deathsData } ) => {
     }
 
     return (
-      <div className="graph">
-        <XYPlot className='case-graph' height={300} width={500} margin={{ left: 80 }} >
+      <div className="death-graph-container">
+        <XYPlot 
+        className='death-graph' 
+        height={250} 
+        width={500} 
+        margin={{ left: 80 }} >
             <XAxis
                 title='dates'
                 attr="x"
