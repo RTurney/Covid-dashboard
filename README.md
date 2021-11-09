@@ -135,6 +135,10 @@ No pipeline or has testing has been set up yet.
 This project is currently still in development
 This project is now deployed to Heroku, but does not have a pipeline set up yet.
 
+Branch structure:
+Main branch will be used as the main deployment branch.
+Dev will be used for creating new branches to add or further develop features
+
 ---
 
 ### Contributors
