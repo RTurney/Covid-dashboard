@@ -11,6 +11,7 @@ const Map = ({ continentData, countryData, vaccineData, countryCSVData, setCount
     // load csv file with country data 
     useEffect(() => {
       loadCountryCSV();
+      // eslint-disable-next-line
     }, [])
 
     //functions 

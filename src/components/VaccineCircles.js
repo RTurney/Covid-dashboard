@@ -4,14 +4,13 @@ import { Circle, Popup } from 'react-leaflet';
 
 const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
 
-    console.log(vaccineData);
-
     return (
+        //map over countryCSVdata to plot datapoints on map
         countryCSVData.map((country, i) => {
             let vaccineTotal = vaccineData.find(countryVacc => {
                 return countryVacc.country === country.country;
             });
-
+            //returns green circle with data if vaccine data available
             if(vaccineTotal) {
                 return (
                 <Circle 
@@ -35,6 +34,7 @@ const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
                 </Circle>
             )
             } else {
+                // returns a yellow circle with 'no data available' 
                 return (
                     <Circle 
                     key={i}
