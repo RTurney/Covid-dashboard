@@ -1,12 +1,41 @@
 .stats-board {
+    border-style: solid;
     border-color: black;
-    border-width: 1px;
-    background-color: gray;
+    border-width: 3px;
+    background-color: lightsteelblue;
     width: 30vh;
     height: 60vh;
     margin-left: 1%;
 }
 .stats-breakdown-container {
+    position: relative;
     height: 85%;
     overflow-y: scroll;
+}
+.continent {
+    padding-left: 1%;
+    padding-bottom: 2%;
+    padding-right: 1%;
+    width: 97%;
+    border-style: solid;
+    border-width: 1px;
+    border-color:slategray;
+}
+.country {
+    padding-left: 1%;
+    padding-bottom: 2%;
+    padding-right: 1%;
+    width: 97%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: slategray;
+}
+.vaccinations {
+    padding-left: 1%;
+    padding-bottom: 2%;
+    padding-right: 1%;
+    width: 97%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: slategray;
 }
