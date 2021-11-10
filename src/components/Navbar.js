@@ -48,9 +48,11 @@ const Navbar = ({ setContinentData, setCountryData, setVaccineData, setCountryCi
                 Global Covid Statistics Dashboard
             </h1>
             <div className='navbar-display'>
+                <div className='totals-group'>
                 <button onClick={checkContinents}>Continents data</button>
                 <button onClick={checkCountries}>Countries data</button>
                 <button onClick={checkVaccines}>Vaccines data</button>
+                </div>
             </div>
         </div>
     )

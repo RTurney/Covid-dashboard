@@ -1,9 +1,9 @@
 .display-container {
-    width: 50%;
-    padding-left: 25%;
+    width: 40%;
+    padding-left: 30%;
 }
 .ticker{
-    background-color:rgba(27, 26, 26, 0.918);
+    background-color:black;
 }
 .ticker-words {
     color: yellow;

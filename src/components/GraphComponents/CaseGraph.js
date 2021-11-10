@@ -1,4 +1,5 @@
 import React from 'react';
+import { AutoSizer } from 'react-virtualized';
 import {XYPlot, LineSeries, XAxis, YAxis } from 'react-vis';
 import 'react-vis/dist/style.css';
 
@@ -12,40 +13,41 @@ const CaseGraph = ( { casesData } ) => {
         )
     }
 
+    
     return (
-      <div className="cases-graph-container">
-        <XYPlot 
-        className='case-graph' 
-        height={250} 
-        width={500} 
-        margin={{ left: 80 }} 
-        xType="time"
-        >
-            <XAxis
-                title='dates'
-                attr="x"
-                attrAxis="y"
-                orientation="bottom"
-                tickFormat={function tickFormat(d){return new Date(d).toLocaleDateString()}}
-                tickTotal={2}
-                tickSize={1}
-            />
-            <YAxis
-                title='Total cases'
-                attr="y"
-                attrAxis="x"
-                orientation="left"
-                tickTotal={2}
-                tickSize={1}
-            />
-            <LineSeries
-                data={data}         
-                opacity={1}
-                strokeStyle="solid"
-                stroke='red'
-                style={{ fill: 'none' }}
-            />
-        </XYPlot>
+      <div className="graph-container">
+                <XYPlot 
+                className='graph' 
+                height={200}
+                width={400}
+                margin={{ left: 80 }} 
+                xType="time"
+                >
+                    <XAxis
+                        title='dates'
+                        attr="x"
+                        attrAxis="y"
+                        orientation="bottom"
+                        tickFormat={function tickFormat(d){return new Date(d).toLocaleDateString()}}
+                        tickTotal={2}
+                        tickSize={1}
+                    />
+                    <YAxis
+                        title='Total cases'
+                        attr="y"
+                        attrAxis="x"
+                        orientation="left"
+                        tickTotal={2}
+                        tickSize={1}
+                    />
+                    <LineSeries
+                        data={data}         
+                        opacity={1}
+                        strokeStyle="solid"
+                        stroke='red'
+                        style={{ fill: 'none' }}
+                    />
+                </XYPlot>
       </div>
     );
 };

@@ -15,6 +15,7 @@
     "react-papaparse": "^3.18.1",
     "react-scripts": "4.0.3",
     "react-ticker": "^1.2.2",
+    "react-virtualized": "^9.22.3",
     "react-vis": "^1.11.7",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1",

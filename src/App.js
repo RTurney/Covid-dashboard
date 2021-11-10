@@ -20,11 +20,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-             <Navbar  
-              setContinentData={setContinentData} 
-              setCountryData={setCountryData} 
-              setVaccineData={setVaccineData}
-             />
+          <Navbar  
+          setContinentData={setContinentData} 
+          setCountryData={setCountryData} 
+          setVaccineData={setVaccineData}
+          />
       </header>
       <Display />
       <div className='dashboard'>

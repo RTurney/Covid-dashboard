@@ -2,6 +2,7 @@ import React from 'react';
 
 const ContinentStats = ({ continentData }) => {
     return (
+        <div className='stats-breakdown-container'>
             <div className='stats-breakdown'>
                 {continentData.map((continent, i) => {
                     return (
@@ -13,6 +14,8 @@ const ContinentStats = ({ continentData }) => {
                     )
                 })}
             </div>
+        </div>
+
     );
 };
 

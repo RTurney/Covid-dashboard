@@ -13,12 +13,12 @@ const VaccinesGraph = ( { vaccinesData } ) => {
     }
 
     return (
-      <div className="death-graph-container">
+      <div className="graph-container">
         <XYPlot 
-        className='death-graph' 
-        height={250} 
-        width={500} 
-        margin={{ left: 80 }} >
+        className='graph' 
+        height={200} 
+        width={400} 
+        margin={{ left: 90 }} >
             <XAxis
                 title='dates'
                 attr="x"

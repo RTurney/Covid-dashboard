@@ -1,5 +1,5 @@
 import React from 'react';
-import { Circle, Popup } from 'react-leaflet';
+import { Circle, Popup, Marker } from 'react-leaflet';
 
 
 const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
@@ -36,10 +36,9 @@ const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
             } else {
                 // returns a yellow circle with 'no data available' 
                 return (
-                    <Circle 
+                    <Marker 
                     key={i}
-                    center={[country.latitude, country.longitude]}
-                    radius={10000}
+                    position={[country.latitude, country.longitude]}
                     onMouseOver={(e) => { e.target.openPopup()}}
                     onMouseOut={(e) => { e.target.closePopup()}}
                     color='yellow'
@@ -52,7 +51,7 @@ const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
                         No Vaccine data
                     </Popup>  
 
-                </Circle>
+                </Marker>
                 )
             }
         })
