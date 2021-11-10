@@ -56,8 +56,8 @@ const StatisticsBoard = ({ countryData, continentData }) => {
                 deathsToday={deathsToday}
             />
             <div className='stats-breakdown-container'>
-                { countryData.length > 0 && <CountryStats countryData={countryData} /> }
-                { continentData.length > 0 && <ContinentStats continentData={continentData} /> }
+                { countryData && <CountryStats countryData={countryData} /> }
+                { continentData && <ContinentStats continentData={continentData} /> }
             </div>
         </div>
     )
