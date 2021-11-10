@@ -5,8 +5,9 @@ import './StatisticsBoard.css'
 import StatsTotals from './StatsTotals';
 import CountryStats from './CountryStats';
 import ContinentStats from './ContinentStats';
+import VaccineStats from './VaccineStats';
 
-const StatisticsBoard = ({ countryData, continentData }) => {
+const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
 
     //set states on load 
     useEffect(() => {
@@ -56,8 +57,9 @@ const StatisticsBoard = ({ countryData, continentData }) => {
                 deathsToday={deathsToday}
             />
             <div className='stats-breakdown-container'>
-                { countryData.length > 0 && <CountryStats countryData={countryData} /> }
-                { continentData.length > 0 && <ContinentStats continentData={continentData} /> }
+                { countryData && <CountryStats countryData={countryData} /> }
+                { continentData && <ContinentStats continentData={continentData} /> }
+                { vaccineData && <VaccineStats vaccineData={vaccineData} />}
             </div>
         </div>
     )
