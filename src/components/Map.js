@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { MapContainer, TileLayer } from "react-leaflet";
 import Papa from 'papaparse';
-import ContinentCircles from './ContinentCircles';
-import CountryCircles from './CountryCircles';
-import VaccineCircles from './VaccineCircles';
+import ContinentCircles from './CirclesComponents/ContinentCircles';
+import CountryCircles from './CirclesComponents/CountryCircles';
+import VaccineCircles from './CirclesComponents/VaccineCircles';
 //CSV file
 import CSVFile from '../world_data.csv'
 
