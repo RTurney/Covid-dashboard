@@ -5,9 +5,9 @@ import './App.css';
 //components
 import Navbar from './components/Navbar';
 import Display from './components/Display';
-import Map from './components/Map';
-import StatisticsBoard from './components/StatisticsBoard';
-import GraphBoard from './components/GraphBoard';
+import Map from './components/MapComponents/Map';
+import StatisticsBoard from './components/StatsComponents/StatisticsBoard';
+import GraphBoard from './components/GraphComponents/GraphBoard';
 
 function App() {
 
