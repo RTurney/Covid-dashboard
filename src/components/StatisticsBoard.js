@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 //css
 import './StatisticsBoard.css'
 //components
-import StatsTotals from './StatsTotals';
-import CountryStats from './CountryStats';
-import ContinentStats from './ContinentStats';
-import VaccineStats from './VaccineStats';
+import StatsTotals from './StatsComponents/StatsTotals';
+import CountryStats from './StatsComponents/CountryStats';
+import ContinentStats from './StatsComponents/ContinentStats';
+import VaccineStats from './StatsComponents/VaccineStats';
 
 const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import CaseGraph from './CaseGraph';
-import DeathGraph from './DeathGraph';
-import VaccinesGraph from './VaccinesGraph';
+import CaseGraph from './GraphComponents/CaseGraph';
+import DeathGraph from './GraphComponents/DeathGraph';
+import VaccinesGraph from './GraphComponents/VaccinesGraph';
 
 const GraphBoard = () => {
 
