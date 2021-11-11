@@ -7,9 +7,9 @@ const CountryStats = ({ countryData }) => {
                 {countryData.map((country, i) => {
                     return (
                         <div className='country' key={i}>
-                            <p>{country.country}</p>
-                            <li>Total cases: {country.cases}</li>
-                            <li>Total deaths: {country.deaths}</li>
+                            <p className='item-title' >{country.country}</p>
+                            <li className='cases' >Total cases: {country.cases}</li>
+                            <li className='deaths' >Total deaths: {country.deaths}</li>
                         </div>
                     )
                 })}

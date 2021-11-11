@@ -12,6 +12,7 @@ const CountryCircles = ({ countryData }) => {
                     radius={200 * Math.sqrt(country.cases)}
                     onMouseOver={(e) => { e.target.openPopup()}}
                     onMouseOut={(e) => { e.target.closePopup()}}
+                    color='red'
                     >
                         <Popup>
                             Country:

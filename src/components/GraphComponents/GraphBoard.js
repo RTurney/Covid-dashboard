@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+//css
+import './GraphBoard.css'
+//components
 import CaseGraph from './CaseGraph';
 import DeathGraph from './DeathGraph';
 import VaccinesGraph from './VaccinesGraph';
@@ -10,7 +13,7 @@ const GraphBoard = () => {
         fetchCasesData();
         fetchDeathsData();
         fetchVaccineData();
-    }, [])
+    }, []);
 
     // state variables 
     const [casesData, setCasesData] = useState(null)

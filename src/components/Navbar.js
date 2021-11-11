@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 //css
 import './NavBar.css' 
 
-const Navbar = ({ setContinentData, setCountryData }) => {
+const Navbar = ({ setContinentData, setCountryData, setVaccineData, setCountryCirclesOn }) => {
 
     // effects 
     useEffect(() => {
@@ -10,8 +10,10 @@ const Navbar = ({ setContinentData, setCountryData }) => {
         // eslint-disable-next-line
     }, []);
 
+    //functions
     const checkContinents = () => {
-        setCountryData([]);
+        setCountryData(null);
+        setVaccineData(null);
         return (
             fetch("https://disease.sh/v3/covid-19/continents")
             .then((response) => response.json())
@@ -21,11 +23,22 @@ const Navbar = ({ setContinentData, setCountryData }) => {
     };
 
     const checkCountries = () => {
-        setContinentData([]);
+        setContinentData(null);
+        setVaccineData(null);
         return (
             fetch("https://disease.sh/v3/covid-19/countries")
             .then((response) => response.json())
             .then((data) => setCountryData(data))
+        )
+    }
+
+    const checkVaccines = () => {
+        setContinentData(null);
+        setCountryData(null);
+        return (
+            fetch("https://disease.sh/v3/covid-19/vaccine/coverage/countries?fullData=true")
+            .then((response) => response.json())
+            .then((data) => setVaccineData(data))
         )
     }
 
@@ -35,9 +48,11 @@ const Navbar = ({ setContinentData, setCountryData }) => {
                 Global Covid Statistics Dashboard
             </h1>
             <div className='navbar-display'>
-                <p>Display data by:</p>
+                <div className='totals-group'>
                 <button onClick={checkContinents}>Continents data</button>
                 <button onClick={checkCountries}>Countries data</button>
+                <button onClick={checkVaccines}>Vaccines data</button>
+                </div>
             </div>
         </div>
     )
