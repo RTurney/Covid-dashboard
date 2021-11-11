@@ -7,9 +7,9 @@ const ContinentStats = ({ continentData }) => {
                 {continentData.map((continent, i) => {
                     return (
                         <div className='continent' key={i}>
-                            <p>{continent.continent}</p>
-                            <li>Total cases: {continent.cases}</li>
-                            <li>Total deaths: {continent.deaths}</li>
+                            <p className='item-title'>{continent.continent}</p>
+                            <li className='cases' >Total cases: {continent.cases}</li>
+                            <li className='deaths' >Total deaths: {continent.deaths}</li>
                         </div>
                     )
                 })}

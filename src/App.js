@@ -26,7 +26,6 @@ function App() {
           setVaccineData={setVaccineData}
           />
       </header>
-      <Display />
       <div className='dashboard'>
         <StatisticsBoard 
           countryData={countryData} 
@@ -42,6 +41,7 @@ function App() {
         />
         <GraphBoard />
       </div>
+      <Display />
     </div>
   );
 }

@@ -16,7 +16,7 @@ const DeathGraph = ( { deathsData } ) => {
       <div className="graph-container">
         <XYPlot 
         className='graph' 
-        height={200} 
+        height={270} 
         width={400} 
         margin={{ left: 80 }} >
             <XAxis

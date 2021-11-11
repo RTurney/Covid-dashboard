@@ -13,7 +13,7 @@ const GraphBoard = () => {
         fetchCasesData();
         fetchDeathsData();
         fetchVaccineData();
-    }, [])
+    }, []);
 
     // state variables 
     const [casesData, setCasesData] = useState(null)
