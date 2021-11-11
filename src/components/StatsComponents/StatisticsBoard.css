@@ -4,12 +4,12 @@
     border-width: 3px;
     background-color: lightsteelblue;
     width: 30vh;
-    height: 60vh;
+    height: 70vh;
     margin-left: 1%;
 }
 .stats-breakdown-container {
-    position: relative;
-    height: 85%;
+    height: 90%;
+    width: 100%;
     overflow-y: scroll;
 }
 .continent {
@@ -20,6 +20,7 @@
     border-style: solid;
     border-width: 1px;
     border-color:slategray;
+    list-style-type: none;
 }
 .country {
     padding-left: 1%;
@@ -29,6 +30,7 @@
     border-style: solid;
     border-width: 1px;
     border-color: slategray;
+    list-style-type: none;
 }
 .vaccinations {
     padding-left: 1%;
@@ -38,4 +40,17 @@
     border-style: solid;
     border-width: 1px;
     border-color: slategray;
+    list-style-type: none;
+}
+.item-title {
+    font-weight: bolder;
+}
+.cases {
+    color:red;
+}
+.deaths {
+    color: purple;
+}
+.vaccination-numbers {
+    color:green;
 }

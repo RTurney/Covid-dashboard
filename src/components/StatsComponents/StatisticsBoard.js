@@ -28,25 +28,25 @@ const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
     const fetchTotalCases = () => {
         return fetch("https://disease.sh/v3/covid-19/all")
             .then((response) => response.json())
-            .then((data) => setCases("Total global cases: " + data.cases));  
+            .then((data) => setCases(data.cases));  
     };
 
     const fetchTotalCasesToday = () => {
         return fetch("https://disease.sh/v3/covid-19/all")
             .then((response) => response.json())
-            .then((data) => setCasesToday("Global cases today: " + data.todayCases));      
+            .then((data) => setCasesToday(data.todayCases));      
     }
 
     const fetchTotalDeaths = () => {
         return fetch("https://disease.sh/v3/covid-19/all")
             .then((response) => response.json())
-            .then((data) => setDeaths("Total global deaths: " + data.deaths));      
+            .then((data) => setDeaths(data.deaths));      
     }
 
     const fetchTotalDeathsToday = () => {
         return fetch("https://disease.sh/v3/covid-19/all")
             .then((response) => response.json())
-            .then((data) => setDeathsToday("Total global deaths today: " + data.todayDeaths));      
+            .then((data) => setDeathsToday(data.todayDeaths));      
     }
 
     return (

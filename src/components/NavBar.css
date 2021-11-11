@@ -5,10 +5,11 @@
     border-width: 2px;
     border-color: grey;
     margin-bottom: 1%;
+    background-color: rgb(9, 99, 189);
 }
 .title {
     text-align: center;
-    color: gold;
+    color: #e2e247;
     margin-top: 0%;
     padding-top: 2%;
     font-size: 200%;

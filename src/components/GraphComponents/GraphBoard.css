@@ -1,5 +1,5 @@
 .graph-board {
-    height: 60vh;
+    height: 70vh;
     width: 40vh;
     overflow-y: auto;
     background-color: white;
@@ -9,7 +9,7 @@
     border-style: solid;
     border-width: 1px;
     border-color: grey;
-    height: 30%;
+    height: 35%;
     width: 100%;
     margin-bottom: 2%;
 }
