@@ -1,8 +1,8 @@
 .stats-board {
     border-style: solid;
-    border-color: black;
+    border-color: white;
     border-width: 3px;
-    background-color: lightsteelblue;
+    background-color: black;
     width: 30vh;
     height: 70vh;
     margin-left: 1%;
@@ -21,6 +21,7 @@
     border-width: 1px;
     border-color:slategray;
     list-style-type: none;
+    color: white;
 }
 .country {
     padding-left: 1%;
@@ -31,6 +32,7 @@
     border-width: 1px;
     border-color: slategray;
     list-style-type: none;
+    color: white;
 }
 .vaccinations {
     padding-left: 1%;
@@ -41,6 +43,7 @@
     border-width: 1px;
     border-color: slategray;
     list-style-type: none;
+    color: white;
 }
 .item-title {
     font-weight: bolder;
@@ -49,7 +52,7 @@
     color:red;
 }
 .deaths {
-    color: purple;
+    color: rgb(218, 8, 218);
 }
 .vaccination-numbers {
     color:green;
