@@ -41,7 +41,7 @@ Currently this application allows users to see:
 
 Here is the basic figma design of the application in it's end-state:
 
-<img src='public/Covid-dashboard.png'>
+<img src='src/assets/Covid-dashboard.png'>
 
 The basic layout will be:
 
