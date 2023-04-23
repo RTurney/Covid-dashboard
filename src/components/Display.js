@@ -1,7 +1,7 @@
 import React from "react";
 import Ticker from 'react-ticker';
 //css
-import './Display.css'
+import '../styles/Display.css'
 
 const Display = () => {
     return (
