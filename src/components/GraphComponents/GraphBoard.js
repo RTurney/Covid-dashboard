@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 //css
-import './GraphBoard.css'
+import '../../styles/GraphBoard.css'
 //components
 import CaseGraph from './CaseGraph';
 import DeathGraph from './DeathGraph';

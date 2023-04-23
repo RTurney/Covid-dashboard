@@ -1,5 +1,4 @@
 import React from 'react';
-import { AutoSizer } from 'react-virtualized';
 import {XYPlot, LineSeries, XAxis, YAxis } from 'react-vis';
 import 'react-vis/dist/style.css';
 
