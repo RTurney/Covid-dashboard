@@ -34,6 +34,8 @@ Currently this application allows users to see:
 - The total number of deaths today
 - Key info on each continent, displayd on the map
 - Key info on each country, displayed on the map
+- Key info on each countries vaccination numbers, displated on map
+- Graphs displaying global case, death, vaccination numbers
 
 ---
 
@@ -89,17 +91,45 @@ Go to [running the application](#running-the-application) to learn more about us
 - public/
 - src/
   - components/
-- App.css
-- App.js
-- App.test.js
-- index.css
-- index.js
-- reportWebVitals.js
-- setupTests.js
+    - GraphComponents/
+    - MapComponents/
+    - StatsComponents/
 - .gitignore
 - package.json
 - README.md
 - yarn.lock
+
+### node_modules/
+
+This is where all node modules are installed and stored.
+
+### public/
+
+A public folder for containing public files
+
+### src/
+
+- components/
+  - GraphComponents/
+    > Contains CaseGraph.js / DeathGraph.js / GraphBoard.js & VaccinesGraph.js components. GraphBoard.js is the main component holding CaseGraph, DeathGraph and VaccinesGraph. All 3 graph components display current totals from the last 10 days and are displayed using react-vis.
+  - MapComponents/
+    > Contains all components necessary for the Map such as ContinentCircles.js / CountryCircles.js / VaccineCircles.js components. These components work using the react-leaflet module to display co-ordinate based circles on the Map component. Circle area is based on cases/deaths/vaccination rates
+  - StatsComponents/
+    > Contains all components for the Stats board. The StatisticsBoard.js is the main component rendered in App.js and holds the StatsTotals, ContinentStats, CountryStats and VaccineStats.
+- Display.js
+  > Contains the ticker display component
+- Display.css
+  > CSS file for the Display component
+- NavBar.js
+  > Contains the Navbar component with the api fetch functions and buttons to switch between Country, continent or vaccine data.
+- NavBar.css
+  > CSS file for the Navbar component
+- App.js
+  > Contains the main code for running this application.
+- App.test.js
+  > Empty file for testing
+- App.css
+  > CSS for the App
 
 ---
 
