@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //css
-import './StatisticsBoard.css'
-import './StatsTotals.css'
+import '../styles/StatisticsBoard.css'
+import '../styles/StatsTotals.css'
 //components
 import StatsTotals from './StatsTotals';
 import CountryStats from './CountryStats';
