@@ -2,7 +2,7 @@ import React from 'react';
 import { Circle, Popup, Marker } from 'react-leaflet';
 
 
-const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
+export const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
 
     return (
         //map over countryCSVdata to plot datapoints on map
@@ -57,5 +57,3 @@ const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
         })
     )
 };
-
-export default VaccineCircles;

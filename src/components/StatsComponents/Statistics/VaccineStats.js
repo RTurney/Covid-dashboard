@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VaccineStats = ({ vaccineData }) => {
+export const VaccineStats = ({ vaccineData }) => {
     return (
         <div className='stats-breakdown-container'>
             <div className='stats-breakdown'>
@@ -16,5 +16,3 @@ const VaccineStats = ({ vaccineData }) => {
         </div>
     )
 };
-
-export default VaccineStats;

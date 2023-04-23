@@ -2,7 +2,7 @@ import React from 'react';
 import {XYPlot, LineSeries, XAxis, YAxis } from 'react-vis';
 import 'react-vis/dist/style.css';
 
-const CaseGraph = ( { casesData } ) => {
+export const CaseGraph = ( { casesData } ) => {
 
     let data = [];
 
@@ -50,5 +50,3 @@ const CaseGraph = ( { casesData } ) => {
       </div>
     );
 };
-
-export default CaseGraph;

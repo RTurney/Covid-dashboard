@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CountryStats = ({ countryData }) => {
+export const CountryStats = ({ countryData }) => {
     return (
         <div className='stats-breakdown-container'>
             <div className='stats-breakdown'>
@@ -18,5 +18,3 @@ const CountryStats = ({ countryData }) => {
             
     );
 };
-
-export default CountryStats;

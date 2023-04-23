@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ContinentStats = ({ continentData }) => {
+export const ContinentStats = ({ continentData }) => {
     return (
         <div className='stats-breakdown-container'>
             <div className='stats-breakdown'>
@@ -18,5 +18,3 @@ const ContinentStats = ({ continentData }) => {
 
     );
 };
-
-export default ContinentStats;

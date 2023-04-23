@@ -2,11 +2,11 @@ import React from 'react';
 import {XYPlot, LineSeries, XAxis, YAxis } from 'react-vis';
 import 'react-vis/dist/style.css';
 
-const DeathGraph = ( { deathsData } ) => {
+export const VaccinesGraph = ( { vaccinesData } ) => {
 
     let data = [];
 
-    for (const [key, value] of Object.entries(deathsData)) {
+    for (const [key, value] of Object.entries(vaccinesData)) {
         data.push(
             {x:`${new Date(key).getTime()}`, y:`${value}`}
         )
@@ -18,7 +18,7 @@ const DeathGraph = ( { deathsData } ) => {
         className='graph' 
         height={270} 
         width={400} 
-        margin={{ left: 80 }} >
+        margin={{ left: 90 }} >
             <XAxis
                 title='dates'
                 attr="x"
@@ -29,7 +29,7 @@ const DeathGraph = ( { deathsData } ) => {
                 tickSize={1}
             />
             <YAxis
-                title='Total deaths'
+                title='Total Vaccinations'
                 attr="y"
                 attrAxis="x"
                 orientation="left"
@@ -41,7 +41,7 @@ const DeathGraph = ( { deathsData } ) => {
                 data={data}         
                 opacity={1}
                 strokeStyle="solid"
-                stroke='purple'
+                stroke='green'
                 style={{ fill: 'none' }}
             />
             
@@ -49,5 +49,3 @@ const DeathGraph = ( { deathsData } ) => {
       </div>
     );
 };
-
-export default DeathGraph;

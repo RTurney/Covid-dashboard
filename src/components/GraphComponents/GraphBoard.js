@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 //css
 import '../../styles/GraphBoard.css'
 //components
-import CaseGraph from './CaseGraph';
-import DeathGraph from './DeathGraph';
-import VaccinesGraph from './VaccinesGraph';
+import { CaseGraph, VaccinesGraph, DeathGraph } from './Graphs';
 
 const GraphBoard = () => {
 

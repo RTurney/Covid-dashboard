@@ -1,7 +1,7 @@
 import React from 'react';
 import { Circle, Popup } from 'react-leaflet';
 
-const ContinentCircles = ({ continentData }) => {
+export const ContinentCircles = ({ continentData }) => {
 
     return (
         continentData.map((continent, i) => {
@@ -31,5 +31,3 @@ const ContinentCircles = ({ continentData }) => {
         })
     );
 };  
-
-export default ContinentCircles;

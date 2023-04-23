@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StatsTotals = ({ cases, casesToday, deaths, deathsToday }) => {
+export const StatsTotals = ({ cases, casesToday, deaths, deathsToday }) => {
     return (
         <div className='totals'>
             <div className='totals-data' >
@@ -22,5 +22,3 @@ const StatsTotals = ({ cases, casesToday, deaths, deathsToday }) => {
         </div>
     )
 };
-
-export default StatsTotals;
