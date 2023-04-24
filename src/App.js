@@ -14,7 +14,6 @@ import GraphBoard from './components/GraphComponents/GraphBoard';
 function App() {
 
   //state constants 
-  // a new line
   const [continentData, setContinentData] = useState(null);
   const [countryData, setCountryData] = useState(null);
   const [vaccineData, setVaccineData] = useState(null)
