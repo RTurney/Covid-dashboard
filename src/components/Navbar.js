@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 //css
 import '../styles/NavBar.css' 
 
-const Navbar = ({ setContinentData, setCountryData, setVaccineData, setCountryCirclesOn }) => {
+const Navbar = ({ setContinentData, setCountryData, setVaccineData }) => {
 
     // effects 
     useEffect(() => {

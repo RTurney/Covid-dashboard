@@ -8,7 +8,7 @@ export const VaccineStats = ({ vaccineData }) => {
                     return (
                         <div className='vaccinations' key={i}>
                             <p className='item-title'>{country.country}</p>
-                            <li className='vaccination-numbers' >Total Vaccinations: {country.timeline[29].total}</li>
+                            <li className='vaccination-numbers' >Total Vaccinations: {country.timeline[country.timeline.length - 1].total}</li>
                         </div>
                     )
                 })}
