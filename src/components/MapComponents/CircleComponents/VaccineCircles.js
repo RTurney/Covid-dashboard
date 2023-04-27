@@ -1,24 +1,22 @@
-import React from 'react';
-import { Circle, Popup, Marker } from 'react-leaflet';
+import React from "react";
+import { Circle, Popup, Marker } from "react-leaflet";
 
-
-export const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
-
-    return (
-        //map over countryCSVdata to plot datapoints on map
-        countryCSVData.map((country, i) => {
-            let vaccineTotal = vaccineData.find(countryVacc => {
-                return countryVacc.country === country.country;
-            });
-            //returns green circle with data if vaccine data available
-            if(vaccineTotal) {
-                return (
-                <Circle 
+export const VaccineCircles = ({ vaccineData, countryCSVData }) => {
+  return (
+  // map over countryCSVdata to plot datapoints on map
+    countryCSVData.map((country, i) => {
+      const vaccineTotal = vaccineData.find(countryVacc => {
+        return countryVacc.country === country.country;
+      });
+      // returns green circle with data if vaccine data available
+      if (vaccineTotal) {
+        return (
+                <Circle
                     key={i}
                     center={[country.latitude, country.longitude]}
                     radius={50 * Math.sqrt(vaccineTotal.timeline[29].total)}
-                    onMouseOver={(e) => { e.target.openPopup()}}
-                    onMouseOut={(e) => { e.target.closePopup()}}
+                    onMouseOver={(e) => { e.target.openPopup(); }}
+                    onMouseOut={(e) => { e.target.closePopup(); }}
                     color='green'
                 >
                      <Popup>
@@ -26,21 +24,21 @@ export const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
                         <br />
                         {country.country}
                         <br />
-                        Total vaccinations: 
+                        Total vaccinations:
                         <br />
                         {vaccineTotal.timeline[29].total}
-                    </Popup>  
+                    </Popup>
 
                 </Circle>
-            )
-            } else {
-                // returns a yellow circle with 'no data available' 
-                return (
-                    <Marker 
+        );
+      } else {
+        // returns a yellow circle with 'no data available'
+        return (
+                    <Marker
                     key={i}
                     position={[country.latitude, country.longitude]}
-                    onMouseOver={(e) => { e.target.openPopup()}}
-                    onMouseOut={(e) => { e.target.closePopup()}}
+                    onMouseOver={(e) => { e.target.openPopup(); }}
+                    onMouseOut={(e) => { e.target.closePopup(); }}
                     color='yellow'
                 >
                      <Popup>
@@ -49,12 +47,11 @@ export const VaccineCircles = ( { vaccineData, countryCSVData } ) => {
                         {country.country}
                         <br />
                         No Vaccine data
-                    </Popup>  
+                    </Popup>
 
                 </Marker>
-                )
-            }
-        })
-    )
+        );
+      }
+    })
+  );
 };
-

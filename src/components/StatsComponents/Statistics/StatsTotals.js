@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 export const StatsTotals = ({ cases, casesToday, deaths, deathsToday }) => {
-    return (
+  return (
         <div className='totals'>
             <div className='totals-data' >
                 <p className='totals-title' >Total Cases:</p>
@@ -20,5 +20,5 @@ export const StatsTotals = ({ cases, casesToday, deaths, deathsToday }) => {
                 <p className='data' > {deathsToday} </p>
             </div>
         </div>
-    )
+  );
 };

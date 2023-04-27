@@ -1,31 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import Papa from 'papaparse';
-//components
-import { VaccineCircles, CountryCircles, ContinentCircles } from './CircleComponents';
-//CSV file
-import CSVFile from '../../world_data.csv'
+import Papa from "papaparse";
+// components
+import { VaccineCircles, CountryCircles, ContinentCircles } from "./CircleComponents";
+// CSV file
+import CSVFile from "../../world_data.csv";
 
 const Map = ({ continentData, countryData, vaccineData, countryCSVData, setCountryCSVData }) => {
-    // load csv file with country data 
-    useEffect(() => {
-      loadCountryCSV();
-      // eslint-disable-next-line
+  // load csv file with country data
+  useEffect(() => {
+    loadCountryCSV();
+    // eslint-disable-next-line
     }, [])
 
-    //functions 
-    const loadCountryCSV = () => {
-       Papa.parse(CSVFile, {
-          download: true,
-          delimiter: ",",
-          header: true, 
-          complete: results => {
-          setCountryCSVData(results.data);
-	      }
+  // functions
+  const loadCountryCSV = () => {
+    Papa.parse(CSVFile, {
+      download: true,
+      delimiter: ",",
+      header: true,
+      complete: results => {
+        setCountryCSVData(results.data);
+      }
     });
-
-    }
-    return (
+  };
+  return (
     <MapContainer className='map-container' center={[10, 10]} zoom={2.2}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -35,7 +34,7 @@ const Map = ({ continentData, countryData, vaccineData, countryCSVData, setCount
        { countryData && <CountryCircles countryData={countryData} /> }
        { vaccineData && <VaccineCircles vaccineData={vaccineData} countryCSVData={countryCSVData} />}
     </MapContainer>
-    )
+  );
 };
 
 export default Map;

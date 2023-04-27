@@ -1,17 +1,16 @@
-import React from 'react';
-import { Circle, Popup } from 'react-leaflet';
+import React from "react";
+import { Circle, Popup } from "react-leaflet";
 
 export const CountryCircles = ({ countryData }) => {
-    
-    return (
-        countryData.map((country, i) => {
-                return (
-                    <Circle 
+  return (
+    countryData.map((country, i) => {
+      return (
+                    <Circle
                     key={i}
                     center={[country.countryInfo.lat, country.countryInfo.long]}
                     radius={200 * Math.sqrt(country.cases)}
-                    onMouseOver={(e) => { e.target.openPopup()}}
-                    onMouseOut={(e) => { e.target.closePopup()}}
+                    onMouseOver={(e) => { e.target.openPopup(); }}
+                    onMouseOut={(e) => { e.target.closePopup(); }}
                     color='red'
                     >
                         <Popup>
@@ -28,7 +27,7 @@ export const CountryCircles = ({ countryData }) => {
                             {country.deaths}
                         </Popup>
                     </Circle>
-                )
-        })
-    );
-};  
+      );
+    })
+  );
+};

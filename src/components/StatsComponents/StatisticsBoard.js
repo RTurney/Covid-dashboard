@@ -1,54 +1,53 @@
-import React, { useState, useEffect } from 'react';
-//css
-import '../../styles/StatisticsBoard.css'
-import '../../styles/StatsTotals.css'
-//components
-import { VaccineStats, ContinentStats, CountryStats, StatsTotals } from './Statistics';
+import React, { useState, useEffect } from "react";
+// css
+import "../../styles/StatisticsBoard.css";
+import "../../styles/StatsTotals.css";
+// components
+import { VaccineStats, ContinentStats, CountryStats, StatsTotals } from "./Statistics";
 
 const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
+  // set states on load
+  useEffect(() => {
+    fetchTotalCases();
+    fetchTotalCasesToday();
+    fetchTotalDeaths();
+    fetchTotalDeathsToday();
+  }, []);
 
-    //set states on load 
-    useEffect(() => {
-        fetchTotalCases();
-        fetchTotalCasesToday();
-        fetchTotalDeaths();
-        fetchTotalDeathsToday();
-    }, [])
+  // state constants
+  const [cases, setCases] = useState("");
+  const [casesToday, setCasesToday] = useState("");
+  const [deaths, setDeaths] = useState("");
+  const [deathsToday, setDeathsToday] = useState("");
 
-    // state constants
-    const [cases, setCases] = useState('');
-    const [casesToday, setCasesToday] = useState('');
-    const [deaths, setDeaths] = useState('');
-    const [deathsToday, setDeathsToday] = useState('');
+  // functions
+  const fetchTotalCases = () => {
+    return fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => setCases(data.cases));
+  };
 
-    // functions 
-    const fetchTotalCases = () => {
-        return fetch("https://disease.sh/v3/covid-19/all")
-            .then((response) => response.json())
-            .then((data) => setCases(data.cases));  
-    };
+  const fetchTotalCasesToday = () => {
+    return fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => setCasesToday(data.todayCases));
+  };
 
-    const fetchTotalCasesToday = () => {
-        return fetch("https://disease.sh/v3/covid-19/all")
-            .then((response) => response.json())
-            .then((data) => setCasesToday(data.todayCases));      
-    }
+  const fetchTotalDeaths = () => {
+    return fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => setDeaths(data.deaths));
+  };
 
-    const fetchTotalDeaths = () => {
-        return fetch("https://disease.sh/v3/covid-19/all")
-            .then((response) => response.json())
-            .then((data) => setDeaths(data.deaths));      
-    }
+  const fetchTotalDeathsToday = () => {
+    return fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => setDeathsToday(data.todayDeaths));
+  };
 
-    const fetchTotalDeathsToday = () => {
-        return fetch("https://disease.sh/v3/covid-19/all")
-            .then((response) => response.json())
-            .then((data) => setDeathsToday(data.todayDeaths));      
-    }
-
-    return (
+  return (
         <div className='stats-board'>
-            <StatsTotals 
+            <StatsTotals
                 cases={cases}
                 casesToday={casesToday}
                 deaths={deaths}
@@ -60,7 +59,7 @@ const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
                 { vaccineData && <VaccineStats vaccineData={vaccineData} />}
             </div>
         </div>
-    )
+  );
 };
 
 export default StatisticsBoard;

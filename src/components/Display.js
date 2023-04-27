@@ -1,20 +1,20 @@
 import React from "react";
-import Ticker from 'react-ticker';
-//css
-import '../styles/Display.css'
+import Ticker from "react-ticker";
+// css
+import "../styles/Display.css";
 
 const Display = () => {
-    return (
+  return (
         <div className='display-container'>
             <Ticker className='ticker-display' mode='smooth'>
-                {({i}) => (
+                {({ i }) => (
                     <div>
-                        <h2 className ='ticker-words'>{'Covid is still a global issue. Please be considerate of others'} </h2>
+                        <h2 className ='ticker-words'>{"Covid is still a global issue. Please be considerate of others"} </h2>
                     </div>
                 )}
             </Ticker>
         </div>
-    )
+  );
 };
 
-export default Display; 
+export default Display;

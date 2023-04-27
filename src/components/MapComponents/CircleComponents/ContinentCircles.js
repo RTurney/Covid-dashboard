@@ -1,17 +1,16 @@
-import React from 'react';
-import { Circle, Popup } from 'react-leaflet';
+import React from "react";
+import { Circle, Popup } from "react-leaflet";
 
 export const ContinentCircles = ({ continentData }) => {
-
-    return (
-        continentData.map((continent, i) => {
-                return (
-                    <Circle 
+  return (
+    continentData.map((continent, i) => {
+      return (
+                    <Circle
                     key={i}
-                    center={[continent.continentInfo.lat, (continent.continentInfo.long+50)]}
+                    center={[continent.continentInfo.lat, (continent.continentInfo.long + 50)]}
                     radius={500 * Math.sqrt(continent.cases)}
-                    onMouseOver={(e) => { e.target.openPopup()}}
-                    onMouseOut={(e) => { e.target.closePopup()}}
+                    onMouseOver={(e) => { e.target.openPopup(); }}
+                    onMouseOut={(e) => { e.target.closePopup(); }}
                     >
                         <Popup>
                             Continent:
@@ -27,7 +26,7 @@ export const ContinentCircles = ({ continentData }) => {
                             {continent.deaths}
                         </Popup>
                     </Circle>
-                )
-        })
-    );
-};  
+      );
+    })
+  );
+};
