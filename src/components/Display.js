@@ -7,13 +7,15 @@ const Display = () => {
   return (
     <div className="display-container">
       <Ticker className="ticker-display" mode="smooth">
-        {({ i }) => (
+        {({ i }) => {
+          return (
           <div>
             <h2 className="ticker-words">
               {"Covid is still a global issue. Please be considerate of others"}{" "}
             </h2>
           </div>
-        )}
+          );
+        }}
       </Ticker>
     </div>
   );

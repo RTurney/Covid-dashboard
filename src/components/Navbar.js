@@ -14,16 +14,16 @@ const Navbar = ({ setContinentData, setCountryData, setVaccineData }) => {
     setCountryData(null);
     setVaccineData(null);
     return fetch("https://disease.sh/v3/covid-19/continents")
-      .then((response) => response.json())
-      .then((data) => setContinentData(data));
+      .then((response) => { return response.json(); })
+      .then((data) => { return setContinentData(data); });
   };
 
   const checkCountries = () => {
     setContinentData(null);
     setVaccineData(null);
     return fetch("https://disease.sh/v3/covid-19/countries")
-      .then((response) => response.json())
-      .then((data) => setCountryData(data));
+      .then((response) => { return response.json(); })
+      .then((data) => { return setCountryData(data); });
   };
 
   const checkVaccines = () => {
@@ -32,8 +32,8 @@ const Navbar = ({ setContinentData, setCountryData, setVaccineData }) => {
     return fetch(
       "https://disease.sh/v3/covid-19/vaccine/coverage/countries?fullData=true"
     )
-      .then((response) => response.json())
-      .then((data) => setVaccineData(data));
+      .then((response) => { return response.json(); })
+      .then((data) => { return setVaccineData(data); });
   };
 
   return (

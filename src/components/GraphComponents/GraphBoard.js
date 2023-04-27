@@ -20,18 +20,18 @@ const GraphBoard = () => {
   // functions
   const fetchCasesData = async () => {
     return fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=200")
-      .then((response) => response.json())
-      .then((data) => setCasesData(data.cases));
+      .then((response) => { return response.json(); })
+      .then((data) => { return setCasesData(data.cases); });
   };
   const fetchDeathsData = async () => {
     return fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=200")
-      .then((response) => response.json())
-      .then((data) => setDeathsData(data.deaths));
+      .then((response) => { return response.json(); })
+      .then((data) => { return setDeathsData(data.deaths); });
   };
   const fetchVaccineData = async () => {
     return fetch("https://disease.sh/v3/covid-19/vaccine/coverage?lastdays=200")
-      .then((response) => response.json())
-      .then((data) => setVaccinesData(data));
+      .then((response) => { return response.json(); })
+      .then((data) => { return setVaccinesData(data); });
   };
 
   return (
