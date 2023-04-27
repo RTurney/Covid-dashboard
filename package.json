@@ -37,11 +37,11 @@
     }
   },
   "lint-staged": {
+    "**/*.{json,css,md}": "prettier --write .",
     "**/*.{js,jsx,ts,tsx}": [
       "yarn lint",
       "yarn test --watchAll=false --findRelatedTests --bail"
-    ],
-    "**/*.{json,css,md}": "prettier --write ."
+    ]
   },
   "eslintConfig": {
     "extends": [
