@@ -19,13 +19,13 @@ function App () {
   return (
     <div className="App">
       <header className="App-header">
-          <Navbar
+        <Navbar
           setContinentData={setContinentData}
           setCountryData={setCountryData}
           setVaccineData={setVaccineData}
-          />
+        />
       </header>
-      <div className='dashboard'>
+      <div className="dashboard">
         <StatisticsBoard
           countryData={countryData}
           continentData={continentData}

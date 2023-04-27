@@ -1,10 +1,10 @@
 .display-container {
-    width: 40%;
-    padding-left: 30%;
+  width: 40%;
+  padding-left: 30%;
 }
-.ticker{
-    background-color:black;
+.ticker {
+  background-color: black;
 }
 .ticker-words {
-    color: yellow;
+  color: yellow;
 }

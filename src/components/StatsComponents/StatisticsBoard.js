@@ -3,7 +3,12 @@ import React, { useState, useEffect } from "react";
 import "../../styles/StatisticsBoard.css";
 import "../../styles/StatsTotals.css";
 // components
-import { VaccineStats, ContinentStats, CountryStats, StatsTotals } from "./Statistics";
+import {
+  VaccineStats,
+  ContinentStats,
+  CountryStats,
+  StatsTotals
+} from "./Statistics";
 
 const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
   // set states on load
@@ -46,19 +51,19 @@ const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
   };
 
   return (
-        <div className='stats-board'>
-            <StatsTotals
-                cases={cases}
-                casesToday={casesToday}
-                deaths={deaths}
-                deathsToday={deathsToday}
-            />
-            <div className='stats-breakdown-container'>
-                { countryData && <CountryStats countryData={countryData} /> }
-                { continentData && <ContinentStats continentData={continentData} /> }
-                { vaccineData && <VaccineStats vaccineData={vaccineData} />}
-            </div>
-        </div>
+    <div className="stats-board">
+      <StatsTotals
+        cases={cases}
+        casesToday={casesToday}
+        deaths={deaths}
+        deathsToday={deathsToday}
+      />
+      <div className="stats-breakdown-container">
+        {countryData && <CountryStats countryData={countryData} />}
+        {continentData && <ContinentStats continentData={continentData} />}
+        {vaccineData && <VaccineStats vaccineData={vaccineData} />}
+      </div>
+    </div>
   );
 };
 

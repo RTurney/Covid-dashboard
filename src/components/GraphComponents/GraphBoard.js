@@ -35,11 +35,11 @@ const GraphBoard = () => {
   };
 
   return (
-        <div className='graph-board'>
-            {casesData && <CaseGraph casesData={casesData} /> }
-            {deathsData && <DeathGraph deathsData={deathsData} /> }
-            {vaccinesData && <VaccinesGraph vaccinesData={vaccinesData} /> }
-        </div>
+    <div className="graph-board">
+      {casesData && <CaseGraph casesData={casesData} />}
+      {deathsData && <DeathGraph deathsData={deathsData} />}
+      {vaccinesData && <VaccinesGraph vaccinesData={vaccinesData} />}
+    </div>
   );
 };
 
