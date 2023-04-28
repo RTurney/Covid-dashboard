@@ -9,7 +9,7 @@ import Map from "./components/MapComponents/Map";
 import StatisticsBoard from "./components/StatsComponents/StatisticsBoard";
 import GraphBoard from "./components/GraphComponents/GraphBoard";
 
-function App () {
+const App = () => {
   // state constants
   const [continentData, setContinentData] = useState(null);
   const [countryData, setCountryData] = useState(null);
@@ -43,6 +43,6 @@ function App () {
       <Display />
     </div>
   );
-}
+};
 
 export default App;

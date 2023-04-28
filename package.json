@@ -37,7 +37,6 @@
     }
   },
   "lint-staged": {
-    "**/*.{json,css,md}": "prettier --write .",
     "**/*.{js,jsx,ts,tsx}": [
       "yarn lint",
       "yarn test --watchAll=false --findRelatedTests --bail"
@@ -63,7 +62,6 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.3",
-    "prettier": "^2.8.8",
     "react-test-renderer": "^18.2.0"
   }
 }

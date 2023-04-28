@@ -28,26 +28,42 @@ const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
   // functions
   const fetchTotalCases = () => {
     return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => { return response.json(); })
-      .then((data) => { return setCases(data.cases); });
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setCases(data.cases);
+      });
   };
 
   const fetchTotalCasesToday = () => {
     return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => { return response.json(); })
-      .then((data) => { return setCasesToday(data.todayCases); });
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setCasesToday(data.todayCases);
+      });
   };
 
   const fetchTotalDeaths = () => {
     return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => { return response.json(); })
-      .then((data) => { return setDeaths(data.deaths); });
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setDeaths(data.deaths);
+      });
   };
 
   const fetchTotalDeathsToday = () => {
     return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => { return response.json(); })
-      .then((data) => { return setDeathsToday(data.todayDeaths); });
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setDeathsToday(data.todayDeaths);
+      });
   };
 
   return (

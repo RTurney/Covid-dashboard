@@ -9,11 +9,13 @@ const Display = () => {
       <Ticker className="ticker-display" mode="smooth">
         {({ i }) => {
           return (
-          <div>
-            <h2 className="ticker-words">
-              {"Covid is still a global issue. Please be considerate of others"}{" "}
-            </h2>
-          </div>
+            <div>
+              <h2 className="ticker-words">
+                {
+                  "Covid is still a global issue. Please be considerate of others"
+                }{" "}
+              </h2>
+            </div>
           );
         }}
       </Ticker>
