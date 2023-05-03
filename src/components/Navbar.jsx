@@ -15,7 +15,13 @@ const Navbar = ({ setContinentData, setCountryData, setVaccineData }) => {
   const checkContinents = () => {
     setCountryData(null);
     setVaccineData(null);
-    // removed whilst testing new apiCaller
+    return fetch("https://disease.sh/v3/covid-19/continents")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setContinentData(data);
+      });
   };
 
   const checkCountries = () => {
