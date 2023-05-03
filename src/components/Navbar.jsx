@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+//components
+
 // css
 import "../styles/NavBar.css";
 
@@ -13,13 +15,7 @@ const Navbar = ({ setContinentData, setCountryData, setVaccineData }) => {
   const checkContinents = () => {
     setCountryData(null);
     setVaccineData(null);
-    return fetch("https://disease.sh/v3/covid-19/continents")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setContinentData(data);
-      });
+    // removed whilst testing new apiCaller
   };
 
   const checkCountries = () => {
