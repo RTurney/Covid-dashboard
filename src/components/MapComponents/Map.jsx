@@ -5,23 +5,26 @@ import Papa from "papaparse";
 import {
   VaccineCircles,
   CountryCircles,
-  ContinentCircles
+  ContinentCircles,
 } from "./CircleComponents";
+import { useData } from "../../contexts";
 // CSV file
 import CSVFile from "../../world_data.csv";
 
-const Map = ({
-  continentData,
-  countryData,
-  vaccineData,
-  countryCSVData,
-  setCountryCSVData
-}) => {
+const Map = () => {
   // load csv file with country data
   useEffect(() => {
     loadCountryCSV();
     // eslint-disable-next-line
   }, []);
+
+  const {
+    continentData,
+    countryData,
+    vaccineData,
+    countryCSVData,
+    setCountryCSVData,
+  } = useData();
 
   // functions
   const loadCountryCSV = () => {
@@ -31,7 +34,7 @@ const Map = ({
       header: true,
       complete: (results) => {
         setCountryCSVData(results.data);
-      }
+      },
     });
   };
   return (

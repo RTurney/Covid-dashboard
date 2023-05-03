@@ -7,10 +7,11 @@ import {
   VaccineStats,
   ContinentStats,
   CountryStats,
-  StatsTotals
+  StatsTotals,
 } from "./Statistics";
+import { useData } from "../../contexts";
 
-const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
+const StatisticsBoard = () => {
   // set states on load
   useEffect(() => {
     fetchTotalCases();
@@ -20,6 +21,7 @@ const StatisticsBoard = ({ countryData, continentData, vaccineData }) => {
   }, []);
 
   // state constants
+  const { countryData, continentData, vaccineData } = useData();
   const [cases, setCases] = useState("");
   const [casesToday, setCasesToday] = useState("");
   const [deaths, setDeaths] = useState("");

@@ -1,9 +1,30 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  return <DataContext.Provider>{children}</DataContext.Provider>;
+  // state constants
+  const [continentData, setContinentData] = useState(null);
+  const [countryData, setCountryData] = useState(null);
+  const [vaccineData, setVaccineData] = useState(null);
+  const [countryCSVData, setCountryCSVData] = useState(null);
+
+  return (
+    <DataContext.Provider
+      value={{
+        continentData,
+        setContinentData,
+        countryData,
+        setCountryData,
+        vaccineData,
+        setVaccineData,
+        countryCSVData,
+        setCountryCSVData,
+      }}
+    >
+      {children}
+    </DataContext.Provider>
+  );
 };
 
 export const useData = () => {

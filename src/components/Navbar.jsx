@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
+//context
+import { useData } from "../contexts";
 // css
 import "../styles/NavBar.css";
 
-const Navbar = ({ setContinentData, setCountryData, setVaccineData }) => {
+const Navbar = () => {
   // effects
   useEffect(() => {
     checkCountries();
     // eslint-disable-next-line
   }, []);
+
+  const { setContinentData, setCountryData, setVaccineData } = useData();
 
   // functions
   const checkContinents = () => {
