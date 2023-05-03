@@ -31,7 +31,7 @@ const App = () => {
           continentData={continentData}
           vaccineData={vaccineData}
         />
-        <Map />
+        <Map countryData={countryData} />
         <GraphBoard />
       </div>
       <Display />
