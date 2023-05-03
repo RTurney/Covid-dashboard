@@ -12,6 +12,9 @@ export const DataProvider = ({ children }) => {
   const [casesToday, setCasesToday] = useState("");
   const [deaths, setDeaths] = useState("");
   const [deathsToday, setDeathsToday] = useState("");
+  const [casesData, setCasesData] = useState(null);
+  const [deathsData, setDeathsData] = useState(null);
+  const [vaccinesData, setVaccinesData] = useState(null);
 
   // functions
   const checkContinents = () => {
@@ -92,6 +95,36 @@ export const DataProvider = ({ children }) => {
       });
   };
 
+  const fetchCasesData = async () => {
+    return fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=200")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setCasesData(data.cases);
+      });
+  };
+
+  const fetchDeathsData = async () => {
+    return fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=200")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setDeathsData(data.deaths);
+      });
+  };
+
+  const fetchVaccineData = async () => {
+    return fetch("https://disease.sh/v3/covid-19/vaccine/coverage?lastdays=200")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setVaccinesData(data);
+      });
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -114,6 +147,12 @@ export const DataProvider = ({ children }) => {
         casesToday,
         deaths,
         deathsToday,
+        casesData,
+        deathsData,
+        vaccinesData,
+        fetchCasesData,
+        fetchDeathsData,
+        fetchVaccineData,
       }}
     >
       {children}

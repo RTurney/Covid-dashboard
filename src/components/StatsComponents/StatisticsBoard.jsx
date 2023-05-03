@@ -33,12 +33,8 @@ const StatisticsBoard = () => {
     fetchTotalCasesToday();
     fetchTotalDeaths();
     fetchTotalDeathsToday();
-  }, [
-    fetchTotalCases,
-    fetchTotalCasesToday,
-    fetchTotalDeaths,
-    fetchTotalDeathsToday,
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="stats-board">
