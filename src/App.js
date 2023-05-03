@@ -8,6 +8,7 @@ import Display from "./components/Display";
 import Map from "./components/MapComponents/Map";
 import StatisticsBoard from "./components/StatsComponents/StatisticsBoard";
 import GraphBoard from "./components/GraphComponents/GraphBoard";
+import { DataProvider } from "./contexts";
 
 const App = () => {
   // state constants
@@ -17,31 +18,33 @@ const App = () => {
   const [countryCSVData, setCountryCSVData] = useState(null);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar
-          setContinentData={setContinentData}
-          setCountryData={setCountryData}
-          setVaccineData={setVaccineData}
-        />
-      </header>
-      <div className="dashboard">
-        <StatisticsBoard
-          countryData={countryData}
-          continentData={continentData}
-          vaccineData={vaccineData}
-        />
-        <Map
-          continentData={continentData}
-          countryData={countryData}
-          vaccineData={vaccineData}
-          countryCSVData={countryCSVData}
-          setCountryCSVData={setCountryCSVData}
-        />
-        <GraphBoard />
+    <DataProvider>
+      <div className="App">
+        <header className="App-header">
+          <Navbar
+            setContinentData={setContinentData}
+            setCountryData={setCountryData}
+            setVaccineData={setVaccineData}
+          />
+        </header>
+        <div className="dashboard">
+          <StatisticsBoard
+            countryData={countryData}
+            continentData={continentData}
+            vaccineData={vaccineData}
+          />
+          <Map
+            continentData={continentData}
+            countryData={countryData}
+            vaccineData={vaccineData}
+            countryCSVData={countryCSVData}
+            setCountryCSVData={setCountryCSVData}
+          />
+          <GraphBoard />
+        </div>
+        <Display />
       </div>
-      <Display />
-    </div>
+    </DataProvider>
   );
 };
 
