@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 import "./styles/App.css";
 
@@ -46,6 +48,16 @@ const App = () => {
       </div>
     </DataProvider>
   );
+  // return (
+  //   <div className="App">
+  //     <MapContainer center={[51, -0.2]} zoom={5} dragging={true}>
+  //       <TileLayer
+  //           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  //           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  //       />
+  //     </MapContainer>
+  //   </div>
+  // );
 };
 
 export default App;
