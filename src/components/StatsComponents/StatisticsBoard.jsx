@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 // css
 import "../../styles/StatisticsBoard.css";
 import "../../styles/StatsTotals.css";
@@ -12,61 +12,33 @@ import {
 import { useData } from "../../contexts";
 
 const StatisticsBoard = () => {
+  // state constants
+  const {
+    countryData,
+    continentData,
+    vaccineData,
+    fetchTotalCases,
+    fetchTotalCasesToday,
+    fetchTotalDeaths,
+    fetchTotalDeathsToday,
+    cases,
+    casesToday,
+    deaths,
+    deathsToday,
+  } = useData();
+
   // set states on load
   useEffect(() => {
     fetchTotalCases();
     fetchTotalCasesToday();
     fetchTotalDeaths();
     fetchTotalDeathsToday();
-  }, []);
-
-  // state constants
-  const { countryData, continentData, vaccineData } = useData();
-  const [cases, setCases] = useState("");
-  const [casesToday, setCasesToday] = useState("");
-  const [deaths, setDeaths] = useState("");
-  const [deathsToday, setDeathsToday] = useState("");
-
-  // functions
-  const fetchTotalCases = () => {
-    return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setCases(data.cases);
-      });
-  };
-
-  const fetchTotalCasesToday = () => {
-    return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setCasesToday(data.todayCases);
-      });
-  };
-
-  const fetchTotalDeaths = () => {
-    return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setDeaths(data.deaths);
-      });
-  };
-
-  const fetchTotalDeathsToday = () => {
-    return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setDeathsToday(data.todayDeaths);
-      });
-  };
+  }, [
+    fetchTotalCases,
+    fetchTotalCasesToday,
+    fetchTotalDeaths,
+    fetchTotalDeathsToday,
+  ]);
 
   return (
     <div className="stats-board">
