@@ -9,6 +9,45 @@ export const DataProvider = ({ children }) => {
   const [vaccineData, setVaccineData] = useState(null);
   const [countryCSVData, setCountryCSVData] = useState(null);
 
+  // functions
+  const checkContinents = () => {
+    setCountryData(null);
+    setVaccineData(null);
+    return fetch("https://disease.sh/v3/covid-19/continents")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setContinentData(data);
+      });
+  };
+
+  const checkCountries = () => {
+    setContinentData(null);
+    setVaccineData(null);
+    return fetch("https://disease.sh/v3/covid-19/countries")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setCountryData(data);
+      });
+  };
+
+  const checkVaccines = () => {
+    setContinentData(null);
+    setCountryData(null);
+    return fetch(
+      "https://disease.sh/v3/covid-19/vaccine/coverage/countries?fullData=true"
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return setVaccineData(data);
+      });
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -20,6 +59,9 @@ export const DataProvider = ({ children }) => {
         setVaccineData,
         countryCSVData,
         setCountryCSVData,
+        checkContinents,
+        checkCountries,
+        checkVaccines,
       }}
     >
       {children}
