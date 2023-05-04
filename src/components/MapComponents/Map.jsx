@@ -2,7 +2,7 @@ import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 import { features } from "../../data/countries.json";
 
-const Map = ({ countryData }) => {
+const Map = () => {
   const mapStyle = {
     fillColor: "white",
     weight: 1,
