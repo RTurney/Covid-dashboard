@@ -6,16 +6,12 @@ import { CaseGraph, VaccinesGraph, DeathGraph } from "./Graphs";
 import { useData } from "../../contexts";
 
 const GraphBoard = () => {
-  const {
-    vaccinesData,
-    fetchVaccineData,
-    graphData, 
-    fetchGraphData,
-  } = useData();
+  const { vaccinesData, fetchVaccineData, graphData, setGraphCovidData } =
+    useData();
 
   // fetch on load
   useEffect(() => {
-    fetchGraphData();
+    setGraphCovidData();
     fetchVaccineData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

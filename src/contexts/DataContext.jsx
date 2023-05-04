@@ -3,6 +3,7 @@ import {
   fetchCountriesCovidData,
   fetchContinentsCovidData,
   fetchStatistics,
+  fetchGraphData,
 } from "../api";
 
 export const DataContext = createContext();
@@ -26,7 +27,6 @@ export const DataProvider = ({ children }) => {
   });
 
   // map functions
-
   const setCountryCovidData = async () => {
     setContinentData(null);
     setVaccineData(null);
@@ -59,19 +59,14 @@ export const DataProvider = ({ children }) => {
   // stats function
 
   const setStatisticsData = async () => {
-    const data = fetchStatistics();
+    const data = await fetchStatistics();
     setCovidStats(data);
   };
 
   // graph functions
-  const fetchGraphData = async () => {
-    return fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=200")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setGraphData(data);
-      });
+  const setGraphCovidData = async () => {
+    const data = await fetchGraphData();
+    setGraphData(data);
   };
 
   // error with vaccine data pausing functionality for now
@@ -100,11 +95,11 @@ export const DataProvider = ({ children }) => {
         vaccinesData,
         fetchVaccineData,
         covidStats,
-        fetchGraphData,
         graphData,
         setCountryCovidData,
         continentCovidApiCall,
         setStatisticsData,
+        setGraphCovidData,
       }}
     >
       {children}
