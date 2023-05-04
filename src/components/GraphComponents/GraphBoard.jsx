@@ -7,26 +7,23 @@ import { useData } from "../../contexts";
 
 const GraphBoard = () => {
   const {
-    casesData,
-    deathsData,
     vaccinesData,
-    fetchCasesData,
-    fetchDeathsData,
     fetchVaccineData,
+    graphData, 
+    fetchGraphData,
   } = useData();
 
   // fetch on load
   useEffect(() => {
-    fetchCasesData();
-    fetchDeathsData();
+    fetchGraphData();
     fetchVaccineData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="graph-board">
-      {casesData && <CaseGraph casesData={casesData} />}
-      {deathsData && <DeathGraph deathsData={deathsData} />}
+      {graphData && <CaseGraph casesData={graphData.cases} />}
+      {graphData && <DeathGraph deathsData={graphData.deaths} />}
       {vaccinesData && <VaccinesGraph vaccinesData={vaccinesData} />}
     </div>
   );

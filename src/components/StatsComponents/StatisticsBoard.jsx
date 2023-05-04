@@ -17,32 +17,23 @@ const StatisticsBoard = () => {
     countryData,
     continentData,
     vaccineData,
-    fetchTotalCases,
-    fetchTotalCasesToday,
-    fetchTotalDeaths,
-    fetchTotalDeathsToday,
-    cases,
-    casesToday,
-    deaths,
-    deathsToday,
+    covidStats,
+    fetchStatistics,
   } = useData();
 
   // set states on load
   useEffect(() => {
-    fetchTotalCases();
-    fetchTotalCasesToday();
-    fetchTotalDeaths();
-    fetchTotalDeathsToday();
+    fetchStatistics();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="stats-board">
       <StatsTotals
-        cases={cases}
-        casesToday={casesToday}
-        deaths={deaths}
-        deathsToday={deathsToday}
+        cases={covidStats.cases}
+        casesToday={covidStats.todayCases}
+        deaths={covidStats.deaths}
+        deathsToday={covidStats.todayDeaths}
       />
       <div className="stats-breakdown-container">
         {countryData && <CountryStats countryData={countryData} />}

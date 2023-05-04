@@ -8,15 +8,16 @@ export const DataProvider = ({ children }) => {
   const [countryData, setCountryData] = useState(null);
   const [vaccineData, setVaccineData] = useState(null);
   const [countryCSVData, setCountryCSVData] = useState(null);
-  const [cases, setCases] = useState("");
-  const [casesToday, setCasesToday] = useState("");
-  const [deaths, setDeaths] = useState("");
-  const [deathsToday, setDeathsToday] = useState("");
-  const [casesData, setCasesData] = useState(null);
-  const [deathsData, setDeathsData] = useState(null);
   const [vaccinesData, setVaccinesData] = useState(null);
+  const [covidStats, setCovidStats] = useState({
+    cases: "", 
+    todayCases: "", 
+    deaths: "", 
+    todayDeaths: ""
+  });
+  const [graphData, setGraphData] = useState({cases: {}, deaths: {}});
 
-  // functions
+  // map functions
   const checkContinents = () => {
     setCountryData(null);
     setVaccineData(null);
@@ -55,63 +56,25 @@ export const DataProvider = ({ children }) => {
       });
   };
 
-  const fetchTotalCases = () => {
+  // stats function
+  const fetchStatistics = async () => {
     return fetch("https://disease.sh/v3/covid-19/all")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        return setCases(data.cases);
+        return setCovidStats(data);
       });
   };
 
-  const fetchTotalCasesToday = () => {
-    return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setCasesToday(data.todayCases);
-      });
-  };
-
-  const fetchTotalDeaths = () => {
-    return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setDeaths(data.deaths);
-      });
-  };
-
-  const fetchTotalDeathsToday = () => {
-    return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setDeathsToday(data.todayDeaths);
-      });
-  };
-
-  const fetchCasesData = async () => {
+  // graph functions
+    const fetchGraphData = async () => {
     return fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=200")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        return setCasesData(data.cases);
-      });
-  };
-
-  const fetchDeathsData = async () => {
-    return fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=200")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setDeathsData(data.deaths);
+        return setGraphData(data);
       });
   };
 
@@ -139,20 +102,12 @@ export const DataProvider = ({ children }) => {
         checkContinents,
         checkCountries,
         checkVaccines,
-        fetchTotalCases,
-        fetchTotalCasesToday,
-        fetchTotalDeaths,
-        fetchTotalDeathsToday,
-        cases,
-        casesToday,
-        deaths,
-        deathsToday,
-        casesData,
-        deathsData,
         vaccinesData,
-        fetchCasesData,
-        fetchDeathsData,
         fetchVaccineData,
+        fetchStatistics,
+        covidStats,
+        fetchGraphData,
+        graphData
       }}
     >
       {children}
