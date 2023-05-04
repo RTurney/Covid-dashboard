@@ -1,61 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
+//context
+import { useData } from "../contexts";
 // css
 import "../styles/NavBar.css";
 
-const Navbar = ({ setContinentData, setCountryData, setVaccineData }) => {
-  // effects
-  useEffect(() => {
-    checkCountries();
-    // eslint-disable-next-line
-  }, []);
-
-  // functions
-  const checkContinents = () => {
-    setCountryData(null);
-    setVaccineData(null);
-    return fetch("https://disease.sh/v3/covid-19/continents")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setContinentData(data);
-      });
-  };
-
-  const checkCountries = () => {
-    setContinentData(null);
-    setVaccineData(null);
-    return fetch("https://disease.sh/v3/covid-19/countries")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setCountryData(data);
-      });
-  };
-
-  const checkVaccines = () => {
-    setContinentData(null);
-    setCountryData(null);
-    return fetch(
-      "https://disease.sh/v3/covid-19/vaccine/coverage/countries?fullData=true"
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setVaccineData(data);
-      });
-  };
+const Navbar = () => {
+  const { setCountryCovidData, setContinentCovidData } = useData();
 
   return (
     <div className="nav-Bar">
       <h1 className="title">Global Covid Statistics Dashboard</h1>
       <div className="navbar-display">
         <div className="totals-group">
-          <button onClick={checkContinents}>Continents data</button>
-          <button onClick={checkCountries}>Countries data</button>
-          <button onClick={checkVaccines}>Vaccines data</button>
+          <button onClick={setContinentCovidData}>Continents data</button>
+          <button onClick={setCountryCovidData}>Countries data</button>
         </div>
       </div>
     </div>
