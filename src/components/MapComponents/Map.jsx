@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import Papa from "papaparse";
 // components
 import {
   VaccineCircles,
@@ -8,35 +7,9 @@ import {
   ContinentCircles,
 } from "./CircleComponents";
 import { useData } from "../../contexts";
-// CSV file
-import CSVFile from "../../world_data.csv";
 
 const Map = () => {
-  // load csv file with country data
-  useEffect(() => {
-    loadCountryCSV();
-    // eslint-disable-next-line
-  }, []);
-
-  const {
-    continentData,
-    countryData,
-    vaccineData,
-    countryCSVData,
-    setCountryCSVData,
-  } = useData();
-
-  // functions
-  const loadCountryCSV = () => {
-    Papa.parse(CSVFile, {
-      download: true,
-      delimiter: ",",
-      header: true,
-      complete: (results) => {
-        setCountryCSVData(results.data);
-      },
-    });
-  };
+  const { continentData, countryData, vaccineData, countryCSVData } = useData();
 
   return (
     <MapContainer className="map-container" center={[10, 10]} zoom={2.2}>

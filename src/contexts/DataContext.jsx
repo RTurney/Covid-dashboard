@@ -1,10 +1,13 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import Papa from "papaparse";
+
 import {
   fetchCountriesCovidData,
   fetchContinentsCovidData,
   fetchStatistics,
   fetchGraphData,
 } from "../api";
+import CSVFile from "../data/world_data.csv";
 
 export const DataContext = createContext();
 
@@ -49,6 +52,25 @@ export const DataProvider = ({ children }) => {
     setGraphData(data);
   };
 
+  // load csv function
+  const loadCountryCSV = () => {
+    Papa.parse(CSVFile, {
+      download: true,
+      delimiter: ",",
+      header: true,
+      complete: (results) => {
+        setCountryCSVData(results.data);
+      },
+    });
+  };
+
+  useEffect(() => {
+    setCountryCovidData();
+    setStatisticsData();
+    setGraphCovidData();
+    loadCountryCSV();
+  }, []);
+
   return (
     <DataContext.Provider
       value={{
@@ -57,13 +79,10 @@ export const DataProvider = ({ children }) => {
         countryData,
         setCountryData,
         countryCSVData,
-        setCountryCSVData,
         covidStats,
         graphData,
         setCountryCovidData,
         setContinentCovidData,
-        setStatisticsData,
-        setGraphCovidData,
       }}
     >
       {children}

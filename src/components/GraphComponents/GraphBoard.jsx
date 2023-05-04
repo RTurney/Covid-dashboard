@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 // css
 import "../../styles/GraphBoard.css";
 // components
@@ -6,13 +6,7 @@ import { CaseGraph, DeathGraph } from "./Graphs";
 import { useData } from "../../contexts";
 
 const GraphBoard = () => {
-  const { graphData, setGraphCovidData } = useData();
-
-  // fetch on load
-  useEffect(() => {
-    setGraphCovidData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { graphData } = useData();
 
   return (
     <div className="graph-board">

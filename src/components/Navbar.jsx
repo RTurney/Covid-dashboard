@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 //context
 import { useData } from "../contexts";
 // css
 import "../styles/NavBar.css";
 
 const Navbar = () => {
-  // effects
-  useEffect(() => {
-    setCountryCovidData();
-    // eslint-disable-next-line
-  }, []);
-
   const { setCountryCovidData, setContinentCovidData } = useData();
 
   return (

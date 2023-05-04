@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 // css
 import "../../styles/StatisticsBoard.css";
 import "../../styles/StatsTotals.css";
@@ -8,14 +8,7 @@ import { useData } from "../../contexts";
 
 const StatisticsBoard = () => {
   // state constants
-  const { countryData, continentData, covidStats, setStatisticsData } =
-    useData();
-
-  // set states on load
-  useEffect(() => {
-    setStatisticsData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { countryData, continentData, covidStats } = useData();
 
   return (
     <div className="stats-board">
