@@ -31,7 +31,7 @@ export const DataProvider = ({ children }) => {
     setCountryData(data);
   };
 
-  const continentCovidApiCall = async () => {
+  const setContinentCovidData = async () => {
     setCountryData(null);
     const data = await fetchContinentsCovidData();
     setContinentData(data);
@@ -61,7 +61,7 @@ export const DataProvider = ({ children }) => {
         covidStats,
         graphData,
         setCountryCovidData,
-        continentCovidApiCall,
+        setContinentCovidData,
         setStatisticsData,
         setGraphCovidData,
       }}
