@@ -24,7 +24,7 @@ const GraphBoard = () => {
     <div className="graph-board">
       {graphData && <CaseGraph casesData={graphData.cases} />}
       {graphData && <DeathGraph deathsData={graphData.deaths} />}
-      {vaccinesData && <VaccinesGraph vaccinesData={vaccinesData} />}
+      {/* {vaccinesData && <VaccinesGraph vaccinesData={vaccinesData} />} */}
     </div>
   );
 };

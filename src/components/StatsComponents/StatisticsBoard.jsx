@@ -18,12 +18,12 @@ const StatisticsBoard = () => {
     continentData,
     vaccineData,
     covidStats,
-    fetchStatistics,
+    setStatisticsData,
   } = useData();
 
   // set states on load
   useEffect(() => {
-    fetchStatistics();
+    setStatisticsData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

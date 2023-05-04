@@ -37,6 +37,7 @@ const Map = () => {
       },
     });
   };
+
   return (
     <MapContainer className="map-container" center={[10, 10]} zoom={2.2}>
       <TileLayer

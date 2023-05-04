@@ -1,4 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
+import {
+  fetchCountriesCovidData,
+  fetchContinentsCovidData,
+  fetchStatistics,
+} from "../api";
 
 export const DataContext = createContext();
 
@@ -10,38 +15,33 @@ export const DataProvider = ({ children }) => {
   const [countryCSVData, setCountryCSVData] = useState(null);
   const [vaccinesData, setVaccinesData] = useState(null);
   const [covidStats, setCovidStats] = useState({
-    cases: "", 
-    todayCases: "", 
-    deaths: "", 
-    todayDeaths: ""
+    cases: "",
+    todayCases: "",
+    deaths: "",
+    todayDeaths: "",
   });
-  const [graphData, setGraphData] = useState({cases: {}, deaths: {}});
+  const [graphData, setGraphData] = useState({
+    cases: {},
+    deaths: {},
+  });
 
   // map functions
-  const checkContinents = () => {
-    setCountryData(null);
-    setVaccineData(null);
-    return fetch("https://disease.sh/v3/covid-19/continents")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setContinentData(data);
-      });
-  };
 
-  const checkCountries = () => {
+  const setCountryCovidData = async () => {
     setContinentData(null);
     setVaccineData(null);
-    return fetch("https://disease.sh/v3/covid-19/countries")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setCountryData(data);
-      });
+    const data = await fetchCountriesCovidData();
+    setCountryData(data);
   };
 
+  const continentCovidApiCall = async () => {
+    setCountryData(null);
+    setVaccineData(null);
+    const data = await fetchContinentsCovidData();
+    setContinentData(data);
+  };
+
+  // broken gateway currently. Pending functionality until fixed
   const checkVaccines = () => {
     setContinentData(null);
     setCountryData(null);
@@ -57,18 +57,14 @@ export const DataProvider = ({ children }) => {
   };
 
   // stats function
-  const fetchStatistics = async () => {
-    return fetch("https://disease.sh/v3/covid-19/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setCovidStats(data);
-      });
+
+  const setStatisticsData = async () => {
+    const data = fetchStatistics();
+    setCovidStats(data);
   };
 
   // graph functions
-    const fetchGraphData = async () => {
+  const fetchGraphData = async () => {
     return fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=200")
       .then((response) => {
         return response.json();
@@ -78,6 +74,7 @@ export const DataProvider = ({ children }) => {
       });
   };
 
+  // error with vaccine data pausing functionality for now
   const fetchVaccineData = async () => {
     return fetch("https://disease.sh/v3/covid-19/vaccine/coverage?lastdays=200")
       .then((response) => {
@@ -99,15 +96,15 @@ export const DataProvider = ({ children }) => {
         setVaccineData,
         countryCSVData,
         setCountryCSVData,
-        checkContinents,
-        checkCountries,
         checkVaccines,
         vaccinesData,
         fetchVaccineData,
-        fetchStatistics,
         covidStats,
         fetchGraphData,
-        graphData
+        graphData,
+        setCountryCovidData,
+        continentCovidApiCall,
+        setStatisticsData,
       }}
     >
       {children}
