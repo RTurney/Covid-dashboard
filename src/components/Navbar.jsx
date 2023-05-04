@@ -4,7 +4,7 @@ import { useData } from "../contexts";
 // css
 import "../styles/NavBar.css";
 
-const Navbar = () => {
+export const Navbar = () => {
   const { setCountryCovidData, setContinentData } = useData();
 
   return (
@@ -19,5 +19,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;

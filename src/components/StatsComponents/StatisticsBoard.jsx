@@ -6,7 +6,7 @@ import "../../styles/StatsTotals.css";
 import { ContinentStats, CountryStats, StatsTotals } from "./Statistics";
 import { useData } from "../../contexts";
 
-const StatisticsBoard = () => {
+export const StatisticsBoard = () => {
   // state constants
   const { continentData, covidStats, combinedCountryData } = useData();
 
@@ -27,5 +27,3 @@ const StatisticsBoard = () => {
     </div>
   );
 };
-
-export default StatisticsBoard;

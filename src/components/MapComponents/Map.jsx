@@ -3,7 +3,7 @@ import { MapContainer, GeoJSON } from "react-leaflet";
 
 import { useData } from "../../contexts";
 
-const Map = () => {
+export const Map = () => {
   const { combinedCountryData } = useData();
 
   const mapStyle = {
@@ -39,5 +39,3 @@ const Map = () => {
     </MapContainer>
   );
 };
-
-export default Map;

@@ -4,11 +4,13 @@ import "leaflet/dist/leaflet.css";
 import "./styles/App.css";
 
 // components
-import Navbar from "./components/Navbar";
-import Display from "./components/Display";
-import Map from "./components/MapComponents/Map";
-import StatisticsBoard from "./components/StatsComponents/StatisticsBoard";
-import GraphBoard from "./components/GraphComponents/GraphBoard";
+import {
+  Navbar,
+  Display,
+  Map,
+  StatisticsBoard,
+  GraphBoard,
+} from "./components";
 import { DataProvider } from "./contexts";
 import {
   fetchCountriesCovidData,
