@@ -1,8 +1,12 @@
 import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
+
 import { features } from "../../data/countries.json";
+import { useData } from "../../contexts";
 
 const Map = () => {
+  const { combinedCountryData } = useData();
+
   const mapStyle = {
     fillColor: "white",
     weight: 1,

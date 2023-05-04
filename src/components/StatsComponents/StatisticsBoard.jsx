@@ -8,7 +8,7 @@ import { useData } from "../../contexts";
 
 const StatisticsBoard = () => {
   // state constants
-  const { countryData, continentData, covidStats } = useData();
+  const { continentData, covidStats, combinedCountryData } = useData();
 
   return (
     <div className="stats-board">
@@ -19,7 +19,9 @@ const StatisticsBoard = () => {
         deathsToday={covidStats.todayDeaths}
       />
       <div className="stats-breakdown-container">
-        {countryData && <CountryStats countryData={countryData} />}
+        {combinedCountryData && (
+          <CountryStats countryData={combinedCountryData} />
+        )}
         {continentData && <ContinentStats continentData={continentData} />}
       </div>
     </div>
