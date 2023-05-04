@@ -1,7 +1,6 @@
 import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 
-import { features } from "../../data/countries.json";
 import { useData } from "../../contexts";
 
 const Map = () => {
@@ -15,8 +14,9 @@ const Map = () => {
   };
 
   const onEachCountry = (country, layer) => {
-    const name = country.properties.ADMIN;
-    layer.bindPopup(`${name}`);
+    const name = country.country;
+    const cases = country.cases;
+    layer.bindPopup(`${name} Total cases: ${cases}`);
   };
 
   return (
@@ -29,7 +29,13 @@ const Map = () => {
         [-80, 180],
       ]}
     >
-      <GeoJSON data={features} style={mapStyle} onEachFeature={onEachCountry} />
+      {combinedCountryData && (
+        <GeoJSON
+          data={combinedCountryData}
+          style={mapStyle}
+          onEachFeature={onEachCountry}
+        />
+      )}
     </MapContainer>
   );
 };
