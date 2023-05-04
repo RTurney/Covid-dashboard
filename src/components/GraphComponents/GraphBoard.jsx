@@ -2,17 +2,15 @@ import React, { useEffect } from "react";
 // css
 import "../../styles/GraphBoard.css";
 // components
-import { CaseGraph, VaccinesGraph, DeathGraph } from "./Graphs";
+import { CaseGraph, DeathGraph } from "./Graphs";
 import { useData } from "../../contexts";
 
 const GraphBoard = () => {
-  const { vaccinesData, fetchVaccineData, graphData, setGraphCovidData } =
-    useData();
+  const { graphData, setGraphCovidData } = useData();
 
   // fetch on load
   useEffect(() => {
     setGraphCovidData();
-    fetchVaccineData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -20,7 +18,6 @@ const GraphBoard = () => {
     <div className="graph-board">
       {graphData && <CaseGraph casesData={graphData.cases} />}
       {graphData && <DeathGraph deathsData={graphData.deaths} />}
-      {/* {vaccinesData && <VaccinesGraph vaccinesData={vaccinesData} />} */}
     </div>
   );
 };

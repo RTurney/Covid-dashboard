@@ -12,9 +12,7 @@ export const DataProvider = ({ children }) => {
   // state constants
   const [continentData, setContinentData] = useState(null);
   const [countryData, setCountryData] = useState(null);
-  const [vaccineData, setVaccineData] = useState(null);
   const [countryCSVData, setCountryCSVData] = useState(null);
-  const [vaccinesData, setVaccinesData] = useState(null);
   const [covidStats, setCovidStats] = useState({
     cases: "",
     todayCases: "",
@@ -29,35 +27,17 @@ export const DataProvider = ({ children }) => {
   // map functions
   const setCountryCovidData = async () => {
     setContinentData(null);
-    setVaccineData(null);
     const data = await fetchCountriesCovidData();
     setCountryData(data);
   };
 
   const continentCovidApiCall = async () => {
     setCountryData(null);
-    setVaccineData(null);
     const data = await fetchContinentsCovidData();
     setContinentData(data);
   };
 
-  // broken gateway currently. Pending functionality until fixed
-  const checkVaccines = () => {
-    setContinentData(null);
-    setCountryData(null);
-    return fetch(
-      "https://disease.sh/v3/covid-19/vaccine/coverage/countries?fullData=true"
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setVaccineData(data);
-      });
-  };
-
   // stats function
-
   const setStatisticsData = async () => {
     const data = await fetchStatistics();
     setCovidStats(data);
@@ -69,17 +49,6 @@ export const DataProvider = ({ children }) => {
     setGraphData(data);
   };
 
-  // error with vaccine data pausing functionality for now
-  const fetchVaccineData = async () => {
-    return fetch("https://disease.sh/v3/covid-19/vaccine/coverage?lastdays=200")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        return setVaccinesData(data);
-      });
-  };
-
   return (
     <DataContext.Provider
       value={{
@@ -87,13 +56,8 @@ export const DataProvider = ({ children }) => {
         setContinentData,
         countryData,
         setCountryData,
-        vaccineData,
-        setVaccineData,
         countryCSVData,
         setCountryCSVData,
-        checkVaccines,
-        vaccinesData,
-        fetchVaccineData,
         covidStats,
         graphData,
         setCountryCovidData,

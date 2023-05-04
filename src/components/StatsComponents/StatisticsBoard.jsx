@@ -3,23 +3,13 @@ import React, { useEffect } from "react";
 import "../../styles/StatisticsBoard.css";
 import "../../styles/StatsTotals.css";
 // components
-import {
-  VaccineStats,
-  ContinentStats,
-  CountryStats,
-  StatsTotals,
-} from "./Statistics";
+import { ContinentStats, CountryStats, StatsTotals } from "./Statistics";
 import { useData } from "../../contexts";
 
 const StatisticsBoard = () => {
   // state constants
-  const {
-    countryData,
-    continentData,
-    vaccineData,
-    covidStats,
-    setStatisticsData,
-  } = useData();
+  const { countryData, continentData, covidStats, setStatisticsData } =
+    useData();
 
   // set states on load
   useEffect(() => {
@@ -38,7 +28,6 @@ const StatisticsBoard = () => {
       <div className="stats-breakdown-container">
         {countryData && <CountryStats countryData={countryData} />}
         {continentData && <ContinentStats continentData={continentData} />}
-        {vaccineData && <VaccineStats vaccineData={vaccineData} />}
       </div>
     </div>
   );

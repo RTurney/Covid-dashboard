@@ -11,8 +11,7 @@ const Navbar = () => {
     // eslint-disable-next-line
   }, []);
 
-  const { checkVaccines, setCountryCovidData, continentCovidApiCall } =
-    useData();
+  const { setCountryCovidData, continentCovidApiCall } = useData();
 
   return (
     <div className="nav-Bar">
@@ -21,7 +20,6 @@ const Navbar = () => {
         <div className="totals-group">
           <button onClick={continentCovidApiCall}>Continents data</button>
           <button onClick={setCountryCovidData}>Countries data</button>
-          <button onClick={checkVaccines}>Vaccines data</button>
         </div>
       </div>
     </div>
