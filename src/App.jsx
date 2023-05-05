@@ -13,6 +13,7 @@ import {
 } from "./components";
 import { DataProvider } from "./contexts";
 import {
+  fetchContinentsCovidData,
   fetchCountriesCovidData,
   fetchGraphData,
   fetchStatistics,
@@ -25,6 +26,7 @@ const App = () => {
   const [combinedCountryData, setCombinedCountryData] = useState(null);
   const [covidStats, setCovidStats] = useState(null);
   const [graphData, setGraphData] = useState(null);
+  const [showComponent, setShowComponent] = useState("countries");
 
   const combineData = (countryData) => {
     const combinedData = features.map((country) => {
@@ -55,17 +57,20 @@ const App = () => {
   };
 
   const fetchData = async () => {
-    const countryData = await fetchCountriesCovidData();
-    setCountryData(countryData);
+    const countryResponse = await fetchCountriesCovidData();
+    setCountryData(countryResponse);
 
-    const statisticsData = await fetchStatistics();
-    setCovidStats(statisticsData);
+    const statisticsResponse = await fetchStatistics();
+    setCovidStats(statisticsResponse);
 
-    const graphData = await fetchGraphData();
-    setGraphData(graphData);
+    const graphResponse = await fetchGraphData();
+    setGraphData(graphResponse);
 
-    const combinedData = await combineData(countryData);
+    const combinedData = await combineData(countryResponse);
     setCombinedCountryData(combinedData);
+
+    const continentResponse = await fetchContinentsCovidData();
+    setContinentData(continentResponse);
   };
 
   useEffect(() => {
@@ -74,7 +79,11 @@ const App = () => {
   }, []);
 
   const loading =
-    !countryData || !combinedCountryData || !covidStats || !graphData;
+    !continentData ||
+    !countryData ||
+    !combinedCountryData ||
+    !covidStats ||
+    !graphData;
 
   if (loading) {
     return <div>Loading! :)</div>;
@@ -87,7 +96,8 @@ const App = () => {
       statisticsData={covidStats}
       graphData={graphData}
       combinedData={combinedCountryData}
-      setContinentData={setContinentData}
+      showComponent={showComponent}
+      setShowComponent={setShowComponent}
     >
       <div className="App">
         <header className="App-header">

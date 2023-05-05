@@ -9,6 +9,8 @@ export const DataProvider = ({
   statisticsData,
   graphData,
   combinedData,
+  showComponent,
+  setShowComponent,
 }) => {
   return (
     <DataContext.Provider
@@ -22,6 +24,8 @@ export const DataProvider = ({
         // setCountryCovidData,
         // setContinentCovidData,
         combinedCountryData: combinedData,
+        showComponent,
+        setShowComponent,
       }}
     >
       {children}
