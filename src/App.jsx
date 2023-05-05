@@ -18,13 +18,15 @@ import {
   fetchGraphData,
   fetchStatistics,
 } from "./api";
-import { combineCountryData } from "./components/utils";
-import { features } from "./data/countries.json";
+import { combineCountryData, combineContinentData } from "./components/utils";
+import { features as countryGeoJSON } from "./data/countries.json";
+import { features as continentGeoJSON } from "./data/continents.json";
 
 const App = () => {
   const [continentData, setContinentData] = useState(null);
   const [countryData, setCountryData] = useState(null);
   const [combinedCountryData, setCombinedCountryData] = useState(null);
+  const [combinedContinentData, setCombinedContinentData] = useState(null);
   const [covidStats, setCovidStats] = useState(null);
   const [graphData, setGraphData] = useState(null);
   const [showComponent, setShowComponent] = useState("countries");
@@ -39,11 +41,20 @@ const App = () => {
     const graphResponse = await fetchGraphData();
     setGraphData(graphResponse);
 
-    const combinedData = await combineCountryData(countryResponse, features);
-    setCombinedCountryData(combinedData);
+    const combinedCountryInfo = await combineCountryData(
+      countryResponse,
+      countryGeoJSON
+    );
+    setCombinedCountryData(combinedCountryInfo);
 
     const continentResponse = await fetchContinentsCovidData();
     setContinentData(continentResponse);
+
+    const combinedContinentInfo = await combineContinentData(
+      continentResponse,
+      continentGeoJSON
+    );
+    setCombinedContinentData(combinedContinentInfo);
   };
 
   useEffect(() => {
@@ -68,7 +79,8 @@ const App = () => {
       countriesData={countryData}
       statisticsData={covidStats}
       graphData={graphData}
-      combinedData={combinedCountryData}
+      combinedCountryData={combinedCountryData}
+      combinedContinentData={combinedContinentData}
       showComponent={showComponent}
       setShowComponent={setShowComponent}
     >

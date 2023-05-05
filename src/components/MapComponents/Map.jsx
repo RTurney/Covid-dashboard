@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 
 import { useData } from "../../contexts";
-import { features } from "../../data/continents.json";
 
 export const Map = () => {
-  const { combinedCountryData, showComponent } = useData();
+  const { combinedCountryData, combinedContinentData, showComponent } =
+    useData();
 
   const mapStyle = {
     fillColor: "white",
@@ -18,6 +18,13 @@ export const Map = () => {
     const name = country.country;
     const cases = country.casesPerOneMillion;
     layer.options.fillColor = country.casesPerMillColour;
+    layer.bindPopup(`${name} Cases Per One Million: ${cases}`);
+  };
+
+  const onEachContinent = (continent, layer) => {
+    const name = continent.continent;
+    const cases = continent.casesPerOneMillion;
+    layer.options.fillColor = continent.casesPerMillColour;
     layer.bindPopup(`${name} Cases Per One Million: ${cases}`);
   };
 
@@ -39,7 +46,11 @@ export const Map = () => {
         />
       )}
       {showComponent === "continents" && (
-        <GeoJSON data={features} style={mapStyle} />
+        <GeoJSON
+          data={combinedContinentData}
+          style={mapStyle}
+          onEachFeature={onEachContinent}
+        />
       )}
     </MapContainer>
   );

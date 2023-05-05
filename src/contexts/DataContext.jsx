@@ -8,7 +8,8 @@ export const DataProvider = ({
   countriesData,
   statisticsData,
   graphData,
-  combinedData,
+  combinedCountryData,
+  combinedContinentData,
   showComponent,
   setShowComponent,
 }) => {
@@ -19,7 +20,8 @@ export const DataProvider = ({
         covidStats: statisticsData,
         graphData,
         countryData: countriesData,
-        combinedCountryData: combinedData,
+        combinedCountryData,
+        combinedContinentData,
         showComponent,
         setShowComponent,
       }}
