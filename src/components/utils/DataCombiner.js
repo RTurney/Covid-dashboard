@@ -1,14 +1,16 @@
+import { colourByCases } from "./MapColourSelector";
 
 export const combineCountryData = (countryAPIData, geojsonData) => {
   const combinedData = geojsonData.map((country) => {
     country.country = "";
-    country.cases = 0;
-    country.todayCases = 0;
-    country.deaths = 0;
-    country.todayDeaths = 0;
-    country.casesPerOneMillion = 0;
-    country.deathsPerOneMillon = 0;
-    country.population = 0;
+    country.cases = null;
+    country.todayCases = null;
+    country.deaths = null;
+    country.todayDeaths = null;
+    country.casesPerOneMillion = null;
+    country.deathsPerOneMillon = null;
+    country.population = null;
+    country.fillColour = "";
     for (let i = 0; i < countryAPIData.length; i++) {
       const covidCountry = countryAPIData[i];
       if (covidCountry.countryInfo.iso3 === country.properties.ISO_A3) {
@@ -20,6 +22,7 @@ export const combineCountryData = (countryAPIData, geojsonData) => {
         country.casesPerOneMillion = covidCountry.casesPerOneMillion;
         country.deathsPerOneMillon = covidCountry.deathsPerOneMillon;
         country.population = covidCountry.population;
+        country.fillColour = colourByCases(covidCountry);
       }
     }
     return country;

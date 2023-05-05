@@ -16,6 +16,7 @@ export const Map = () => {
   const onEachCountry = (country, layer) => {
     const name = country.country;
     const cases = country.cases;
+    layer.options.fillColor = country.fillColour;
     layer.bindPopup(`${name} Total cases: ${cases}`);
   };
 
