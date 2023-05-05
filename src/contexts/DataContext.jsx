@@ -16,13 +16,9 @@ export const DataProvider = ({
     <DataContext.Provider
       value={{
         continentData,
-        // setContinentData,
-        // setCountryData,
         covidStats: statisticsData,
         graphData,
         countryData: countriesData,
-        // setCountryCovidData,
-        // setContinentCovidData,
         combinedCountryData: combinedData,
         showComponent,
         setShowComponent,

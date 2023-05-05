@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 
 import { useData } from "../../contexts";
+import { features } from "../../data/continents.json";
 
 export const Map = () => {
-  const { combinedCountryData } = useData();
+  const { combinedCountryData, showComponent } = useData();
 
   const mapStyle = {
     fillColor: "white",
@@ -30,12 +31,15 @@ export const Map = () => {
         [-80, 180],
       ]}
     >
-      {combinedCountryData && (
+      {showComponent === "countries" && (
         <GeoJSON
           data={combinedCountryData}
           style={mapStyle}
           onEachFeature={onEachCountry}
         />
+      )}
+      {showComponent === "continents" && (
+        <GeoJSON data={features} style={mapStyle} />
       )}
     </MapContainer>
   );
