@@ -18,6 +18,7 @@ import {
   fetchGraphData,
   fetchStatistics,
 } from "./api";
+import { combineCountryData } from "./components/utils";
 import { features } from "./data/countries.json";
 
 const App = () => {
@@ -27,34 +28,6 @@ const App = () => {
   const [covidStats, setCovidStats] = useState(null);
   const [graphData, setGraphData] = useState(null);
   const [showComponent, setShowComponent] = useState("countries");
-
-  const combineData = (countryData) => {
-    const combinedData = features.map((country) => {
-      country.country = "L";
-      country.cases = 0;
-      country.todayCases = 0;
-      country.deaths = 0;
-      country.todayDeaths = 0;
-      country.casesPerOneMillion = 0;
-      country.deathsPerOneMillon = 0;
-      country.population = 0;
-      for (let i = 0; i < countryData.length; i++) {
-        const covidCountry = countryData[i];
-        if (covidCountry.countryInfo.iso3 === country.properties.ISO_A3) {
-          country.country = covidCountry.country;
-          country.cases = covidCountry.cases;
-          country.todayCases = covidCountry.todayCases;
-          country.deaths = covidCountry.deaths;
-          country.todayDeaths = covidCountry.todayDeaths;
-          country.casesPerOneMillion = covidCountry.casesPerOneMillion;
-          country.deathsPerOneMillon = covidCountry.deathsPerOneMillon;
-          country.population = covidCountry.population;
-        }
-      }
-      return country;
-    });
-    return combinedData;
-  };
 
   const fetchData = async () => {
     const countryResponse = await fetchCountriesCovidData();
@@ -66,7 +39,7 @@ const App = () => {
     const graphResponse = await fetchGraphData();
     setGraphData(graphResponse);
 
-    const combinedData = await combineData(countryResponse);
+    const combinedData = await combineCountryData(countryResponse, features);
     setCombinedCountryData(combinedData);
 
     const continentResponse = await fetchContinentsCovidData();
