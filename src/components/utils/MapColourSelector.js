@@ -25,3 +25,23 @@ export const colourByCases = (country) => {
       return "#ffffff";
   }
 };
+
+
+export const colourByCasesPerMill = (casesPerMillion) => {
+  switch (true) {
+    case casesPerMillion >= 0 && casesPerMillion < 999:
+      return "#ff9999";
+    case casesPerMillion >= 1000 && casesPerMillion < 9999:
+      return "#ff6666";
+    case casesPerMillion >= 10000 && casesPerMillion < 99999:
+      return "#ff0000";
+    case casesPerMillion >= 100000 && casesPerMillion < 199999:
+      return "#e60000";
+    case casesPerMillion >= 200000 && casesPerMillion < 499999:
+      return "#b30000";
+    case casesPerMillion >= 500000 && casesPerMillion < 1000000000:
+      return "black";
+    default:
+      return "#ffffff";
+  }
+};

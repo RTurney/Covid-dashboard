@@ -1,2 +1,2 @@
 export { combineCountryData } from "./DataCombiner";
-export { colourByCases } from "./MapColourSelector";
+export { colourByCases, colourByCasesPerMill } from "./MapColourSelector";
