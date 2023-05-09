@@ -46,7 +46,6 @@ export const combineContinentData = (continentAPIData, geoJsonData) => {
     continent.casesPerMillColour = "white";
     for (let i = 0; i < continentAPIData.length; i++) {
       const covidcontinent = continentAPIData[i];
-      console.log(covidcontinent.continent.toLowerCase().split(" ").join(""));
       if (covidcontinent.continent.toLowerCase().split(" ").join("") === continent.properties.continent) {
         continent.continent = covidcontinent.continent;
         continent.cases = covidcontinent.cases;

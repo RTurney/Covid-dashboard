@@ -8,7 +8,6 @@ export const Map = () => {
     useData();
 
   const mapStyle = {
-    fillColor: "white",
     weight: 1,
     color: "black",
     fillOpacity: 1,
