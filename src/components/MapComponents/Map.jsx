@@ -14,7 +14,7 @@ export const Map = () => {
   };
 
   const onEachCountry = (country, layer) => {
-    const name = country.country;
+    const name = country.properties.ADMIN;
     const cases = country.casesPerOneMillion;
     layer.options.fillColor = country.casesPerMillColour;
     layer.bindPopup(`${name} Cases Per One Million: ${cases}`);

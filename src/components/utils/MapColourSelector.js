@@ -7,19 +7,19 @@
 // 500,000 - 999,999 = #b30000
 // 100,000,000 + = #800000
 
-export const colourByCases = (country) => {
+export const colourByCases = (cases) => {
   switch(true) {
-    case country.cases >= 0 && country.cases < 50000:
+    case cases >= 0 && cases < 50000:
       return "#ff9999";
-    case country.cases >= 50000 && country.cases < 100000:
+    case cases >= 50000 && cases < 100000:
       return "#ff6666";
-    case country.cases >= 100000 && country.cases < 199999:
+    case cases >= 100000 && cases < 199999:
       return "#ff0000";
-    case country.cases >= 200000 && country.cases < 500000:
+    case cases >= 200000 && cases < 500000:
       return "#e60000";
-    case country.cases >= 500000 && country.cases < 1000000:
+    case cases >= 500000 && cases < 1000000:
       return "#b30000";
-    case country.cases >= 1000000:
+    case cases >= 1000000:
       return "#800000";
     default:
       return "#ffffff";

@@ -23,7 +23,7 @@ export const combineCountryData = (countryAPIData, geojsonData) => {
         country.casesPerOneMillion = covidCountry.casesPerOneMillion;
         country.deathsPerOneMillon = covidCountry.deathsPerOneMillon;
         country.population = covidCountry.population;
-        country.caseColour = colourByCases(covidCountry);
+        country.caseColour = colourByCases(covidCountry.cases);
         country.casesPerMillColour = colourByCasesPerMill(covidCountry.casesPerOneMillion);
       }
     }
@@ -55,7 +55,7 @@ export const combineContinentData = (continentAPIData, geoJsonData) => {
         continent.casesPerOneMillion = covidcontinent.casesPerOneMillion;
         continent.deathsPerOneMillon = covidcontinent.deathsPerOneMillon;
         continent.population = covidcontinent.population;
-        continent.caseColour = colourByCases(covidcontinent);
+        continent.caseColour = colourByCases(covidcontinent.cases);
         continent.casesPerMillColour = colourByCasesPerMill(covidcontinent.casesPerOneMillion);
       }
     }
