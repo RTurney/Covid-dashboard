@@ -6,9 +6,10 @@ import "../../styles/StatsTotals.css";
 import { ContinentStats, CountryStats, StatsTotals } from "./Statistics";
 import { useData } from "../../contexts";
 
-const StatisticsBoard = () => {
+export const StatisticsBoard = () => {
   // state constants
-  const { countryData, continentData, covidStats } = useData();
+  const { continentData, covidStats, combinedCountryData, showComponent } =
+    useData();
 
   return (
     <div className="stats-board">
@@ -19,11 +20,13 @@ const StatisticsBoard = () => {
         deathsToday={covidStats.todayDeaths}
       />
       <div className="stats-breakdown-container">
-        {countryData && <CountryStats countryData={countryData} />}
-        {continentData && <ContinentStats continentData={continentData} />}
+        {showComponent === "countries" && (
+          <CountryStats countryData={combinedCountryData} />
+        )}
+        {showComponent === "continents" && (
+          <ContinentStats continentData={continentData} />
+        )}
       </div>
     </div>
   );
 };
-
-export default StatisticsBoard;

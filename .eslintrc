@@ -4,6 +4,12 @@
       "semi": ["error", "always"],
       "quotes": ["error", "double"],
       "arrow-body-style": ["error", "always"],
-      "react/prop-types": "off"
+      "react/prop-types": "off",
+      "require-await": 1,
+      "spaced-comment": 1,
+      "array-bracket-newline": 2, 
+      "array-bracket-spacing": 2,
+      "arrow-spacing": 2,
+      "no-trailing-spaces": 2
     }
 }

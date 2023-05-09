@@ -1,32 +1,56 @@
 import React from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
-// components
-import {
-  VaccineCircles,
-  CountryCircles,
-  ContinentCircles,
-} from "./CircleComponents";
+import { MapContainer, GeoJSON } from "react-leaflet";
+
 import { useData } from "../../contexts";
 
-const Map = () => {
-  const { continentData, countryData, vaccineData, countryCSVData } = useData();
+export const Map = () => {
+  const { combinedCountryData, combinedContinentData, showComponent } =
+    useData();
+
+  const mapStyle = {
+    weight: 1,
+    color: "black",
+    fillOpacity: 1,
+  };
+
+  const onEachCountry = (country, layer) => {
+    const name = country.country;
+    const cases = country.casesPerOneMillion;
+    layer.options.fillColor = country.casesPerMillColour;
+    layer.bindPopup(`${name} Cases Per One Million: ${cases}`);
+  };
+
+  const onEachContinent = (continent, layer) => {
+    const name = continent.continent;
+    const cases = continent.casesPerOneMillion;
+    layer.options.fillColor = continent.casesPerMillColour;
+    layer.bindPopup(`${name} Cases Per One Million: ${cases}`);
+  };
 
   return (
-    <MapContainer className="map-container" center={[10, 10]} zoom={2.2}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      />
-      {continentData && <ContinentCircles continentData={continentData} />}
-      {countryData && <CountryCircles countryData={countryData} />}
-      {vaccineData && (
-        <VaccineCircles
-          vaccineData={vaccineData}
-          countryCSVData={countryCSVData}
+    <MapContainer
+      center={[10, 10]}
+      zoom={2}
+      minZoom={1}
+      maxBounds={[
+        [80, -180],
+        [-80, 180],
+      ]}
+    >
+      {showComponent === "countries" && (
+        <GeoJSON
+          data={combinedCountryData}
+          style={mapStyle}
+          onEachFeature={onEachCountry}
+        />
+      )}
+      {showComponent === "continents" && (
+        <GeoJSON
+          data={combinedContinentData}
+          style={mapStyle}
+          onEachFeature={onEachContinent}
         />
       )}
     </MapContainer>
   );
 };
-
-export default Map;

@@ -3,7 +3,7 @@ import Ticker from "react-ticker";
 // css
 import "../styles/Display.css";
 
-const Display = () => {
+export const Display = () => {
   return (
     <div className="display-container">
       <Ticker className="ticker-display" mode="smooth">
@@ -22,5 +22,3 @@ const Display = () => {
     </div>
   );
 };
-
-export default Display;

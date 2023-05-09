@@ -5,7 +5,7 @@ import "../../styles/GraphBoard.css";
 import { CaseGraph, DeathGraph } from "./Graphs";
 import { useData } from "../../contexts";
 
-const GraphBoard = () => {
+export const GraphBoard = () => {
   const { graphData } = useData();
 
   return (
@@ -15,5 +15,3 @@ const GraphBoard = () => {
     </div>
   );
 };
-
-export default GraphBoard;

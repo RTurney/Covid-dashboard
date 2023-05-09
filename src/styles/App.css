@@ -11,9 +11,5 @@
   height: 70vh;
   margin-left: 1%;
   margin-right: 1%;
+  background-color: rgb(163, 206, 255);
 }
-
-/* map container sizing
-.leaflet-container {
-  height: 80vh;
-} */
