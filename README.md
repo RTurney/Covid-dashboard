@@ -7,7 +7,7 @@ This project uses the [Open disease data api](https://disease.sh/) to fetch and 
 
 [Leaflet](https://leafletjs.com/index.html) is used to display the map data.
 
-This application is also deployed †o https://covid-datatracker-dashboard.herokuapp.com/ and can be run there.
+This application was originally deployed †o https://covid-datatracker-dashboard.herokuapp.com/ but is now no longer available.
 
 ---
 
@@ -28,14 +28,24 @@ This application is also deployed †o https://covid-datatracker-dashboard.herok
 
 Currently this application allows users to see:
 
-- the total number of cases
-- The total number of cases today
-- Total number of deaths worldwide
-- The total number of deaths today
-- Key info on each continent, displayd on the map
-- Key info on each country, displayed on the map
-- Key info on each countries vaccination numbers, displated on map
-- Graphs displaying global case, death, vaccination numbers
+- The total global number of cases/deaths/cases today and deaths today at the head of the statistics board
+- A statistics board with key info on each country/continent depending on what state the application is in
+- A map with markers sized by case numbers for each country/continent
+- The ability to switch between country/continent and vaccination data via the navbar
+- Graphs following the total global number of cases/deaths/vaccinations since 2019
+
+---
+
+## Current state on Dev
+
+Currently this application allows users to see:
+
+- Interactive chloropleth map of continents with number of cases per Million
+- Interactive chloropleth map of countires with number of cases per million
+- Total number of global cases, deaths, cases today and deaths today displayed on Statistics board
+- Key info on each countries' total number of cases and deaths displayed on the statistics board
+- Key info on each Continent's total number of cases and deaths displayed on the statitsics board
+- Graphs displaying global cases/deaths since 2019
 
 ---
 
@@ -47,21 +57,19 @@ Here is the basic figma design of the application in it's end-state:
 
 The basic layout will be:
 
-- A map with markers for each country
+- A chloropleth map
 - A statistics board detailing the key statistics for each country
 - A header/navbar for the Covid dashboard
 - Graphs of global data for cases/deaths/vaccinations
 - A modal detailing key statistics for a country when clicked on
 
-Key steps:
+## Future plans
 
-1. Create react app
-2. Fetch statistics from api
-3. Display statistics to app
-4. Display map to app
-5. Link map to statistics so users can click map for stats
-6. Add multiple statistics so users can switch between relevant statistics on map
-7. Add graphs of current trends in cases/deaths/vaccinations
+- Convert project from javascript and jsx to typescript
+- Convert from a SPA to a multipage application
+- Include greater amounts of information on each country/continent
+- Find another api for vaccinations as the current one is broken
+- Add a CI/CD pipeline with heroku deployment
 
 ---
 
@@ -90,10 +98,17 @@ Go to [running the application](#running-the-application) to learn more about us
 - node_modules/
 - public/
 - src/
+  - tests/
+  - api/
+  - assets/
   - components/
     - GraphComponents/
     - MapComponents/
     - StatsComponents/
+    - utils/
+    - contexts/
+    - data/
+    - styles/
 - .gitignore
 - package.json
 - README.md
@@ -105,31 +120,38 @@ This is where all node modules are installed and stored.
 
 ### public/
 
-A public folder for containing public files
+A public folder for containing public files such as the favicon icon.
 
 ### src/
 
+- tests/
+  > Contains unit tests for each component or util employed in the application.
+- api/
+  > contains all the api fetch functions for this application
+- assets/
+  > contains png/jpeg assets used within this application
 - components/
   - GraphComponents/
     > Contains CaseGraph.js / DeathGraph.js / GraphBoard.js & VaccinesGraph.js components. GraphBoard.js is the main component holding CaseGraph, DeathGraph and VaccinesGraph. All 3 graph components display current totals from the last 10 days and are displayed using react-vis.
   - MapComponents/
-    > Contains all components necessary for the Map such as ContinentCircles.js / CountryCircles.js / VaccineCircles.js components. These components work using the react-leaflet module to display co-ordinate based circles on the Map component. Circle area is based on cases/deaths/vaccination rates
+    > Contains all components necessary for the Map. These components work using the react-leaflet module to display polygonal geoJson data for each country and continent. Colour each country/continent is based on case data for that country/continent
   - StatsComponents/
-    > Contains all components for the Stats board. The StatisticsBoard.js is the main component rendered in App.js and holds the StatsTotals, ContinentStats, CountryStats and VaccineStats.
-- Display.js
+    > Contains all components for the Stats board. The StatisticsBoard.js is the main component rendered in App.js and holds the StatsTotals, ContinentStats & CountryStats
+  - utils/
+    > Contains utility functions required throughout the application
+  - contexts/
+    > Contains contexts and providers for this application such as DataContext
+  - data/
+    > Holds geoJSON and other data files
+  - styles/
+    > Contains all the css style files for each component
+- TickerDisplay.js
   > Contains the ticker display component
-- Display.css
-  > CSS file for the Display component
 - NavBar.js
-  > Contains the Navbar component with the api fetch functions and buttons to switch between Country, continent or vaccine data.
-- NavBar.css
-  > CSS file for the Navbar component
+  > Contains the Navbar component with buttons to switch between Country, continent or vaccine data.
 - App.js
   > Contains the main code for running this application.
-- App.test.js
-  > Empty file for testing
-- App.css
-  > CSS for the App
+  > Also runs all the fetch functions for the api data and the loading state
 
 ---
 
@@ -145,25 +167,35 @@ This should start the application server and this app will load within your defa
 
 You should now be able to access this application. The server automatically refreshes when any changes are saved to file.
 
-This application can also be run from the online server at:
-https://covid-datatracker-dashboard.herokuapp.com/
+To run the tests for this application run:
+
+```
+yarn test
+```
+
+To run the linter for this application:
+
+```
+yarn lint
+```
+
+Husky is used for pre-commit hooks, running both the linter and tests before each commit.
 
 ---
 
 ## Deploying the application
 
-This application is currently deployed to Heroku at:
+This application is no longer deployed to Heroku at:
 https://covid-datatracker-dashboard.herokuapp.com/
 
 Deployment will only be made from the main branch.
-No pipeline or has testing has been set up yet.
+No pipeline has been set up yet.
 
 ---
 
 ### Notes
 
 This project is currently still in development
-This project is now deployed to Heroku, but does not have a pipeline set up yet.
 
 Branch structure:
 Main branch will be used as the main deployment branch.
